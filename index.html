@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HiFIt</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+
+    <div class = "section1">
+    <h1 id="HiFit"><u>HiFit</u></h1>
+        <p id="health"> <strong>Health Metrics: </strong></p>
+        <p id="goal">Your Weight Goal: </p>
+        <br>
+        <div class = "form">
+            <form>
+                <fieldset class = "forms">
+                    <label for = "length">How long did you workout today: </label>
+                    <input type = "text" id="length" name = "length">
+                    <br><br>
+                    <label for = "reps">Reps: </label>
+                    <input type = "text" id="reps" name = "reps">
+                    <br><br>
+                    <label for = "lifts">Lifts: </label>
+                    <input type = "text" id="lifts" name = "lifts">
+                    <br><br>
+                    <label for = "sets">Sets: </label>
+                    <input type = "text" id="sets" name = "sets">
+                    <br><br>
+                    <label for = "other">Other (temporary): </label>
+                    <input type = "text" id="other" name = "other">
+                    <br><br>
+                    <input class = "button" type = "submit" value = "Submit">
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

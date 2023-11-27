@@ -1,0 +1,37 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(202, 198, 198);
+    background-size: auto;
+}
+
+
+
+.section1{
+    gap: 20px;
+    padding: 10px;
+    position: relative;
+    margin: 20px 10px;
+    background-color: rgb(243, 239, 239);
+    border-radius: 10px;
+    width: 300px;
+    height: 600px;
+}
+
+#HiFit{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 0px;
+}
+
+#health {
+    text-align: center;
+    font-size: 20px;
+}
+
+#goal {
+    text-align: center;
+    font-size: 15px;
+}

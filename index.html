@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HiFIt</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
 
@@ -13,9 +14,12 @@
         <p id="health"> <strong>Health Metrics: </strong></p>
         <p id="goal">Your Weight Goal: </p>
         <br>
-        <div class = "form">
+        <section class = "form">
             <form>
                 <fieldset class = "forms">
+                    <label for = "goal">What's your goal? </label>
+                    <input type = "text" id="goal" name = "goal">
+                    <br><br>
                     <label for = "length">How long did you workout today: </label>
                     <input type = "text" id="length" name = "length">
                     <br><br>
@@ -31,10 +35,10 @@
                     <label for = "other">Other (temporary): </label>
                     <input type = "text" id="other" name = "other">
                     <br><br>
-                    <input class = "button" type = "submit" value = "Submit">
+                    <button class="submit" onclick="getFormValues()">Submit</button>
                 </fieldset>
             </form>
-        </div>
+        </section>
     </div>
 </body>
 </html>

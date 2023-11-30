@@ -13,9 +13,18 @@ export async function getUsers() {
     return rows;
 }
 
-export async function getUser(id) {
-    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE userID = ?", [id]);
+export async function getUser(email) {
+    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
     return rows;
+}
+
+export async function validatetUser(email, password) {
+    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
+    if(rows.email == email && rows.password == password){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 export async function createUser(username, password, email) {

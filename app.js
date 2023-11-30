@@ -1,18 +1,38 @@
 import express from 'express'
 import path from 'path'
-import { getUsers, getUser, createUser} from './database.js';
+import { getUsers, getUser, createUser, validatetUser} from './database.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 
+app.use(express.static(path.join('C:/Users/N7233/Documents/GitHub/HiFitRepo/public'), { 'extensions': ['html', 'js'] }));
+app.use(express.urlencoded({ extended: true }));
+
+
 app.get('/', async (req, res) => {
-  res.sendFile(path.join('C:/Users/N7233/Documents/GitHub/HiFitRepo//main.html'));
+  res.sendFile(path.join(__dirname, 'public/login.html'));
 });
 
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/home.html'));
+});
+
+app.get('/create', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/create.html'));
+});
 
 app.get("/users", async (req, res) => {
   const users = await getUsers();
   res.send(users);
 });
+
+app.post('/login.html', (req, res) => {
+    res.redirect('/home.html');
+});
+
 
 
 app.use((err, req, res, next) => {
@@ -20,8 +40,8 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!')
 })
 
-app.listen(8080, () => {
-  console.log('Server is running on port 8080');
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
 })
 
 

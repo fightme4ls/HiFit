@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HiFIt - Login</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
         <p id="health"> <strong>Login </strong></p>
         <br>
         <section class="form">
-            <form>
+            <form action="login.html"  method="POST">
         
                 <label for="loginUsername">Username/Email: </label>
                 <input type="text" id="loginUsername" name="loginUsername">
@@ -23,7 +23,7 @@
                 <input type="password" id="loginPassword" name="loginPassword">
                 <br><br>
                
-                <button type="button" class="login" onclick="login()">Login</button>
+                <button type="submit" class="submit">Login</button>
             </form>
         </section>
    
@@ -34,13 +34,7 @@
   
     <script>
         function switchToCreateAccountPage() {
-        
-            window.location.href = "main.html";
-        }
-        
-        function login() {
-         
-            window.location.href = "index.html";
+            window.location.href = "create.html";
         }
     </script>
 </body>

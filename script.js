@@ -1,11 +1,9 @@
 var goal = "";
-var output = "";
 var length = "";
 var reps = "";
 var lifts = "";
 var sets = "";
 var other = "";
-var text = "";
 
 function getFormValues(){
   goal = document.querySelector('#dropdown').value;
@@ -14,7 +12,6 @@ function getFormValues(){
   lifts = document.getElementById('lifts').value;
   sets = document.getElementById('sets').value;
   other = document.getElementById('other').value;
-  console.log(goal);
   updateGoal();
 }
 

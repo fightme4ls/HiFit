@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiFIt - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div class="section1">
+        <h1 id="HiFit"><u>HiFit</u></h1>
+        <p id="health"> <strong>Login </strong></p>
+        <br>
+        <section class="form">
+            <form>
+        
+                <label for="loginUsername">Username/Email: </label>
+                <input type="text" id="loginUsername" name="loginUsername">
+                <br><br>
+                <label for="loginPassword">Password: </label>
+                <input type="password" id="loginPassword" name="loginPassword">
+                <br><br>
+               
+                <button type="button" class="login" onclick="login()">Login</button>
+            </form>
+        </section>
+   
+        <br>
+        <button type="button" class="createAccount" onclick="switchToCreateAccountPage()">Create Account</button>
+    </div>
+
+  
+    <script>
+        function switchToCreateAccountPage() {
+        
+            window.location.href = "main.html";
+        }
+        
+        function login() {
+         
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

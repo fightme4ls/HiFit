@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiFIt - Create Account</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div class="section1">
+        <h1 id="HiFit"><u>HiFit</u></h1>
+        <p id="health"> <strong>Create New Account </strong></p>
+       
+        <br>
+        <section class="form">
+            <form>
+         
+                <label for="username">Username: </label>
+                <input type="text" id="username" name="username">
+                <br><br>
+                <label for="email">Email: </label>
+                <input type="text" id="email" name="email">
+                <br><br>
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password">
+                <br><br>
+                <label for="password">Confirm Password: </label>
+                <input type="password" id="password" name="password">
+                <br><br>
+                <label for="target">Target Weight </label>
+                <input type="target" id="target" name="target">
+                <br><br>
+                <label for="target">Target Time: </label>
+                <input type="target" id="target" name="target">
+                <br><br>
+                <label for="createGoal">Create Workout Goal: </label>
+                <select name="createGoal" id="createGoal">
+                    <option value="Just Start Working Out">Just Start Working Out</option>
+                    <option value="Get into Weightlifting">Get into Weightlifting</option>
+                    <option value="Just Start Running">Just Start Running</option>
+                </select>
+                <br><br>
+
+            
+                <button type="button" class="submit" onclick="getFormValues()">Create Account</button>
+            </form>
+        </section>
+
+        <br>
+        <button type="button" class="login" onclick="switchToLoginPage()">Already have an account? Click here to login</button>
+    </div>
+
+  
+    <script>
+        function switchToLoginPage() {
+            window.location.href = "login.html";
+        }
+
+      
+        function getFormValues() {
+       
+            switchToLoginPage();
+        }
+    </script>
+</body>
+</html>

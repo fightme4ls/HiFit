@@ -29,12 +29,17 @@
    
         <br>
         <button type="button" class="createAccount" onclick="switchToCreateAccountPage()">Create Account</button>
+        <button type="button" class="bypass" onclick="bypass()">Temp Skip Login</button>
+
     </div>
 
   
     <script>
         function switchToCreateAccountPage() {
             window.location.href = "create.html";
+        }
+        function bypass() {
+            window.location.href = "home.html";
         }
     </script>
 </body>

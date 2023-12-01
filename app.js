@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import { getUsers, getUser, createUser, validatetUser} from './database.js';
+import { createUser, validateUser} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -8,7 +8,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
 
-app.use(express.static(path.join('C:/Users/N7233/Documents/GitHub/HiFitRepo/public'), { 'extensions': ['html', 'js'] }));
+app.use(express.static(path.join('C:/Users/alexa/OneDrive/Documents/GitHub/HiFit/public'), { 'extensions': ['html', 'js'] }));
+
 app.use(express.urlencoded({ extended: true }));
 
 
@@ -24,16 +25,34 @@ app.get('/create', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/create.html'));
 });
 
-app.get("/users", async (req, res) => {
-  const users = await getUsers();
-  res.send(users);
-});
-
-app.post('/login.html', (req, res) => {
+app.post('/login.html', async (req, res) => {
+  const username = req.body.loginUsername;
+  const password = req.body.loginPassword;
+  const valid = await validateUser(username, password);
+  if(valid){
     res.redirect('/home.html');
+  } else {
+    res.send(`
+    <script>
+      alert('Invalid username or password');
+      window.location.href = '/login.html'; </script>`);
+  }
 });
 
-
+app.post('/create.html', async(req, res) => {
+  const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
+  const currentWeight = parseFloat(req.body.currentWeight);
+  const targetWeight = parseFloat(req.body.targetWeight);
+  const targetDate = req.body.targetDate;
+  const goal = req.body.setGoal;
+  const userCreation = await createUser(username,email,password,currentWeight,targetWeight,targetDate,goal);
+  res.send(`
+    <script>
+      alert('Account Has Now Been Created, You may login!');
+      window.location.href = '/login.html'; </script>`);
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack)

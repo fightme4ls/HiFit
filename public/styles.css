@@ -13,6 +13,32 @@ body {
     background-color: #EDC7B7;
 }
 
+#HiFit{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+#logo {
+    display: flex;
+    width: 50px; 
+    height: auto;
+    margin-right: 10px; 
+}
+
+.header {
+    display: flex; /* Use flexbox to create a flexible container */
+    align-items: center; /* Center items vertically within the container */
+    justify-content: center;
+}
+
+.underLogo {
+    text-align: center;
+    font-size: 27px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
 
 .home_container{
     display: flex;
@@ -25,7 +51,7 @@ body {
 
 .form, .progress{
     background-color: #EEE2DC;
-    margin: 20px;
+    margin: 5px 20px;
     padding:15px;
     border-style: solid;
     border-width: 5px;
@@ -57,12 +83,6 @@ body {
     width:100%;
     height:100%;
     margin:5px;
-}
-
-#HiFit{
-    text-align: center;
-    font-size: 50px;
-    margin-top: 0px;
 }
 
 #health {

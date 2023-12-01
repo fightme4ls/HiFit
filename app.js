@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
 
-app.use(express.static(path.join('C:/Users/alexa/OneDrive/Documents/GitHub/HiFit/public'), { 'extensions': ['html', 'js'] }));
+app.use(express.static(path.join(__dirname, 'public'), { 'extensions': ['html', 'js'] }));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -47,11 +47,18 @@ app.post('/create.html', async(req, res) => {
   const targetWeight = parseFloat(req.body.targetWeight);
   const targetDate = req.body.targetDate;
   const goal = req.body.setGoal;
-  const userCreation = await createUser(username,email,password,currentWeight,targetWeight,targetDate,goal);
-  res.send(`
+  if(username == "" || email == "" || password == "" || currentWeight == "" || targetWeight == "" || targetDate == ""){
+    res.send(`
+    <script>
+      alert('You Did Not Input All Your Information, Try Again.');
+      window.location.href = '/create.html'; </script>`);
+  } else {
+    const userCreation = await createUser(username,email,password,currentWeight,targetWeight,targetDate,goal);
+    res.send(`
     <script>
       alert('Account Has Now Been Created, You may login!');
       window.location.href = '/login.html'; </script>`);
+  }
 });
 
 app.use((err, req, res, next) => {

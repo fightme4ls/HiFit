@@ -8,69 +8,70 @@
     <script src="/app.js"></script>
 </head>
 <body>
-    <div class = "section1">
-    <h1 id="HiFit"><u>HiFit</u></h1>
-        <p id="health"> <strong>Health Metrics: </strong></p>
-        <p id="weightGoal">Your Weight Goal: </p>
-        <p><a href="./create.html">Visit the Create Page</a></p>
-        <p><a href="./login.html">Visit the Login Page</a></p>
-        <br>
-        <section class = "form">
-            <form>
-                <fieldset class = "forms">
-                    <label for = "goal">What's your goal? </label>
-                    <select name="goal" id="dropdown">
-                        <option value="Just Start Working Out">Just Start Working Out</option>
-                        <option value="Get into Weightlifting" selected="selected">Get into Weightlifting</option>
-                        <option value="Just Start Running">Just Start Running</option>
-                    </select>
-                    <br><br>
-                    <label for = "length">How long did you workout today: </label>
-                    <input type = "text" id="length" name = "length">
-                    <br><br>
-                    <label for = "reps">Reps: </label>
-                    <input type = "text" id="reps" name = "reps">
-                    <br><br>
-                    <label for = "lifts">Lifts: </label>
-                    <input type = "text" id="lifts" name = "lifts">
-                    <br><br>
-                    <label for = "sets">Sets: </label>
-                    <input type = "text" id="sets" name = "sets">
-                    <br><br>
-                    <label for = "other">Other (temporary): </label>
-                    <input type = "text" id="other" name = "other">
-                    <br><br>
-                    <button type="button" class="submit" onclick="getFormValues()">Submit</button>
-                </fieldset>
-            </form>
-        </section>
-    </div>
+    <div class = "container">
+        <div class = "form">
+            <h1 id="HiFit"><u>HiFit</u></h1>
+                <p id="health"> <strong>Health Metrics: </strong></p>
+                <p id="weightGoal">Your Weight Goal: </p>
+                <p><a href="./create.html">Visit the Create Page</a></p>
+                <p><a href="./login.html">Visit the Login Page</a></p>
+                <br>
+                <section class = "form">
+                    <form>
+                        <fieldset class = "forms">
+                            <label for = "goal">What's your goal? </label>
+                            <select name="goal" id="dropdown">
+                                <option value="Just Start Working Out">Just Start Working Out</option>
+                                <option value="Get into Weightlifting" selected="selected">Get into Weightlifting</option>
+                                <option value="Just Start Running">Just Start Running</option>
+                            </select>
+                            <br><br>
+                            <label for = "length">How long did you workout today: </label>
+                            <input type = "text" id="length" name = "length">
+                            <br><br>
+                            <label for = "reps">Reps: </label>
+                            <input type = "text" id="reps" name = "reps">
+                            <br><br>
+                            <label for = "lifts">Lifts: </label>
+                            <input type = "text" id="lifts" name = "lifts">
+                            <br><br>
+                            <label for = "sets">Sets: </label>
+                            <input type = "text" id="sets" name = "sets">
+                            <br><br>
+                            <label for = "other">Other (temporary): </label>
+                            <input type = "text" id="other" name = "other">
+                            <br><br>
+                            <button type="button" class="submit" onclick="getFormValues()">Submit</button>
+                        </fieldset>
+                    </form>
+                </section>
+        </div>
+    
 
-    <div class="section2">
-        <h1>Temp</h1>
+    <div class="progress">
+        <h1 class="bar">Temp</h1>
+        <div class="videos">
+                <iframe
+                id="frame1"
+                className="move"
+                src="https://www.youtube.com/embed/cuh5HsU7WQQ?si=5-VJZ4icUg3ZMJTt"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+    
+            <iframe
+                id="frame2"
+                className="move"
+                src="https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+        </div>
     </div>
-    <div class="video1">
-        <iframe
-        id="frame1"
-        className="move"
-        src="https://www.youtube.com/embed/cuh5HsU7WQQ?si=5-VJZ4icUg3ZMJTt"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-    <div class="video2">
-        <iframe
-        id="frame2"
-        className="move"
-        src="https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    </div>
+</div>
 </body>
 </html>

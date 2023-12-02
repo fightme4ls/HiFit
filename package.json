@@ -24,6 +24,6 @@
     "npm": "10.1.0"
   },
   "scripts": {
-    "run dev": "node app.js"
+    "start": "node app.js"
   }
 }

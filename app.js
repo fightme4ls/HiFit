@@ -71,21 +71,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-
-var goal, output, length, reps, lifts, sets, other, text = "";
-
-function getFormValues(){
-  goal = document.querySelector('#dropdown').value;
-  length = document.getElementById('length').value;
-  reps = document.getElementById('reps').value;
-  lifts = document.getElementById('lifts').value;
-  sets = document.getElementById('sets').value;
-  other = document.getElementById('other').value;
-  console.log(goal);
-  updateGoal();
-}
-
-function updateGoal(){
-  document.getElementById("weightGoal").innerHTML = "Your Weight Goal: " + goal;
-} 

@@ -1,12 +1,15 @@
 import mysql from 'mysql2';
 
 const pool = mysql.createPool({
-    host: 'localhost',
+    host: '35.236.74.142',
     user: 'root',
     password: 'password',
     port: '3306',
     database: 'hifit'
 }).promise();
+
+const [rows] = await pool.query("SELECT * FROM hifit.users");
+console.log(rows);
 
 export async function getUsers() {
     const [rows] = await pool.query("SELECT * FROM hifit.users");
@@ -24,6 +27,16 @@ export async function validateUser(email, password) {
         const user = rows[0];
         const storedPassword = user.password; 
         return (storedPassword == password);
+    } else {
+        return false;
+    }
+}
+ 
+export async function pullUserWeight(email){
+    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
+    if(rows.length > 0) {
+        const user = rows[0];
+        return user.currentWeight;
     } else {
         return false;
     }

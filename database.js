@@ -8,9 +8,6 @@ const pool = mysql.createPool({
     database: 'hifit'
 }).promise();
 
-const [rows] = await pool.query("SELECT * FROM hifit.users");
-console.log(rows);
-
 export async function getUsers() {
     const [rows] = await pool.query("SELECT * FROM hifit.users");
     return rows;

@@ -66,9 +66,11 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!')
 })
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-})
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
 
 var goal, output, length, reps, lifts, sets, other, text = "";

@@ -41,3 +41,23 @@ export async function createUser(username, email, password, currentWeight, targe
     }
 }
 
+export async function getTargetWeight(email) {
+    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
+    if (rows.length > 0) {
+        const user = rows[0];
+        return user.targetWeight;
+    } else {
+        return false;
+    }
+}
+
+export async function getCurrentWeight(email) {
+    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
+    if(rows.length > 0) {
+        const user = rows[0];
+        return user.currentWeight;
+    } else {
+        return false;
+    }
+}
+

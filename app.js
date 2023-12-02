@@ -87,3 +87,4 @@ function getFormValues(){
 function updateGoal(){
   document.getElementById("weightGoal").innerHTML = "Your Weight Goal: " + goal;
 } 
+

@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HiFIt</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="/app.js"></script>
+    
+    <script src="/app.js" ></script>
+    <script src = "/youtube+bar.js"></script>
 </head>
 <body>
     <div class = "home_container">
@@ -45,17 +47,17 @@
     
 
     <div class="progress">
-        <h1 class="bar">Temp</h1>
+            <div id ="healthProgress">
+                <div id="healthBar"></div>
+            </div>
+                <button type = "button" class = "submit" onclick="moveBar()">Click Me</button> 
+            <script>
+                function moveBar() {
+                    console.log ("hello");
+                }
+            </script>
         <div class="videos">
-                <iframe
-                id="frame1"
-                className="move"
-                src="https://www.youtube.com/embed/cuh5HsU7WQQ?si=5-VJZ4icUg3ZMJTt"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            ></iframe>
+                <span id = "videoHTML1"></span>
     
             <iframe
                 id="frame2"

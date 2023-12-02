@@ -96,3 +96,14 @@ button{
     border-radius: 8px;
     border-color:#BAB2B5 ;
 }
+
+#healthProgress {
+    width: 100%;
+    background-color: black;
+}
+
+#healthBar {
+    width: 50%;
+    height: 50px;
+    background-color: greenyellow;
+}

@@ -96,3 +96,15 @@ button{
     border-radius: 8px;
     border-color:#BAB2B5 ;
 }
+
+#weightInputs{
+    display: none;
+}
+
+#runInputs{
+    display: none;
+}
+
+#placeholder{
+    opacity: 0;
+}

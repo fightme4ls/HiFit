@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HiFIt</title>
+    <title>HiFit</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="/app.js"></script>
 </head>
 <body>
     <div class = "home_container">
@@ -20,27 +19,88 @@
                 <p><a href="./create.html">Visit the Create Page</a></p>
                 <p><a href="./login.html">Visit the Login Page</a></p>
                 <br>
+                <div id="weightFormButton">
+                    <button type="button" class="weightForm" onclick="swapFormToWeight()">Weight Form</button>
+                </div>
+                <br>
+                <div id="runFormButton">
+                    <button type="button" class="runForm" onclick="swapFormToRun()">Run Form</button>
+                </div>
                 <section class = "form">
+
+                    <div id="weightInputs">
                     <form>
                         <fieldset class = "forms">
-                            <label for = "length">How long did you workout today: </label>
-                            <input type = "text" id="length" name = "length">
+                            <label for = "weightDate">What day is it? </label>
+                            <input type = "text" id="weightDate" name = "weightDate">
                             <br><br>
-                            <label for = "reps">Reps: </label>
-                            <input type = "text" id="reps" name = "reps">
+                            <label for = "weightLength">How long did you workout today: </label>
+                            <input type = "text" id="weightLength" name = "weightLength">
                             <br><br>
-                            <label for = "lifts">Lifts: </label>
-                            <input type = "text" id="lifts" name = "lifts">
+                            <label for = "currentWeight">Current Weight: </label>
+                            <input type = "text" id="currentWeight" name = "currentWeight">
                             <br><br>
-                            <label for = "sets">Sets: </label>
-                            <input type = "text" id="sets" name = "sets">
+                            <label for = "weightNotes">Notes: </label>
+                            <textarea id="weightNotes" name = "weightNotes" rows="3" cols="30"></textarea>
                             <br><br>
-                            <label for = "other">Other (temporary): </label>
-                            <input type = "text" id="other" name = "other">
-                            <br><br>
-                            <button type="button" class="submit" onclick="getFormValues()">Submit</button>
+                            <button type="button" class="submit" onclick="getWeightFormValues()">Submit</button>
                         </fieldset>
                     </form>
+                    </div>
+
+                    <div id="runInputs">
+                        <form>
+                            <fieldset class = "forms">
+                                <label for = "runDate">What day is it? </label>
+                                <input type = "text" id="runDate" name = "runDate">
+                                <br><br>
+                                <label for = "runLength">How long did you run today: </label>
+                                <input type = "text" id="runLength" name = "runLength">
+                                <br><br>
+                                <label for = "distance">Distance: </label>
+                                <input type = "text" id="distance" name = "distance">
+                                <br><br>
+                                <label for = "time">Time: </label>
+                                <input type = "text" id="time" name = "time">
+                                <br><br>
+                                <label for = "place">Location: </label>
+                                <input type = "text" id="place" name = "places">
+                                <br><br>
+                                <label for = "runNotes">Notes: </label>
+                                <textarea id="runNotes" name = "runNotes" rows="3" cols="30"></textarea>
+                                <br><br>
+                                <button type="button" class="submit" onclick="getRunFormValues()">Submit</button>
+                            </fieldset>
+                        </form>
+                        </div>
+
+                        <div id="placeholder">
+                            <form>
+                                <fieldset class = "forms">
+                                    <label for = "placeholder1">Placeholder1: </label>
+                                    <input type = "text" id="placeholder1" name = "placeholder1">
+                                    <br><br>
+                                    <label for = "placeholder2">How long did Placeholder2: </label>
+                                    <input type = "text" id="placeholder2" name = "placeholder2">
+                                    <br><br>
+                                    <label for = "placeholder3">Placeholder3: </label>
+                                    <input type = "text" id="placeholder3" name = "placeholder3">
+                                    <br><br>
+                                    <label for = "placeholder4">Placeholder4: </label>
+                                    <input type = "text" id="placeholder4" name = "placeholder4">
+                                    <br><br>
+                                    <label for = "placeholder5">Placeholder5: </label>
+                                    <input type = "text" id="placeholder5" name = "placeholder5">
+                                    <br><br>
+                                    <label for = "placeholder6">Placeholder6: </label>
+                                    <textarea id="placeholder6" name = "placeholder6" rows="3" cols="30"></textarea>
+                                    <br><br>
+                                    <button type="button" class="submit">Submit</button>
+                                </fieldset>
+                            </form>
+                            </div>
+
+
                 </section>
         </div>
     
@@ -70,5 +130,8 @@
         </div>
     </div>
 </div>
+
+<script src="script.js"></script>
+
 </body>
 </html>

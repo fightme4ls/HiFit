@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HiFit - Create Account</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="/app.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
 
@@ -38,6 +38,7 @@
                 <input type="target" id="target" name="targetWeight">
                 <br><br>
                 <label for="target">Target Date: </label>
+                <input type="target" placeholder="YYYY-MM-DD" id="target" name="targetDate">
                 <input type="date" id="target" name="targetDate">
                 <br><br>
                 <label for="workoutFrequency"> How often do you workout?</label>
@@ -80,8 +81,6 @@
 
         <br>
     </div>
-
-  
     <script>
         const goalSelect = document.getElementById("setGoal");
         const routineSelect = document.getElementById("setRoutine");

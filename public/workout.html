@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiFit - Workout Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+ 
+<body>
+    <button type="button" id="backButton" class="backButton" onclick="bypass()">Back</button>
+    <section class="forms">
+        <div class="check">
+            
+            <form>
+                <fieldset class = "forms">
+                    <table id="workoutTable">
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Sets</th>
+                            <th>Reps</th>
+                            <th>Weight</th>
+                        </tr>
+                        </table>
+                        <br>
+                        <button type="button" onclick="addWorkout()">Add workout</button>
+                        <button type="button" onclick="removeWorkout()">Remove workout</button>
+                        <br><br>
+                        <label for = "date">Date: </label>
+                        <input type = "text" placeholder="YYYY-MM-DD" id="date" name = "date">
+                        <br><br>
+                        <button type="button" class="submit" onclick="getInputs()">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

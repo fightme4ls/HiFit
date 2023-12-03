@@ -34,6 +34,7 @@
                     <form action="home.html" method="post">
                         <fieldset class = "forms">
                             <label for = "weightDate">What day is it? </label>
+                            <input type = "text" placeholder="YYYY-MM-DD" id="weightDate" name = "weightDate">
                             <input type = "date" id="weightDate" name = "weightDate">
                             <br><br>
                             <label for = "weightLength">How long did you workout today: </label>
@@ -54,6 +55,7 @@
                         <form action="home.html" method="post">
                             <fieldset class = "forms">
                                 <label for = "runDate">What day is it? </label>
+                                <input type = "text" placeholder="YYYY-MM-DD" id="runDate" name = "runDate">
                                 <input type = "date" id="runDate" name = "runDate">
                                 <br><br>
                                 <label for = "runLength">How long did you run today: </label>
@@ -74,11 +76,11 @@
                                 <button type="button" class="submit" onclick="getRunFormValues()">Submit</button>
                             </fieldset>
                         </form>
-                        </div>
+                    </div>
 
-                        <div id="placeholder">
-                            <form>
-                                <fieldset class = "forms">
+                    <div id="placeholder">
+                        <form>
+                            <fieldset class = "forms">
                                     <label for = "placeholder1">Placeholder1: </label>
                                     <input type = "text" id="placeholder1" name = "placeholder1">
                                     <br><br>
@@ -98,12 +100,13 @@
                                     <textarea id="placeholder6" name = "placeholder6" rows="3" cols="30"></textarea>
                                     <br><br>
                                     <button type="button" class="submit">Submit</button>
-                                </fieldset>
-                            </form>
-                            </div>
-
-
+                            </fieldset>
+                        </form>
+                    </div>
+                    <br>
+                    <button type="button" id="workoutPageButton" class="workoutPageButton" onclick="switchToWorkoutPage()">Input Your Full Workout Here</button>
                 </section>
+                <button type="button" class="submit" onclick="resetForm()">Reset Form</button>
         </div>
     
 

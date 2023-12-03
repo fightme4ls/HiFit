@@ -58,16 +58,17 @@
                     <option value="Depends on how much time I have">Depends on how much time I have</option>                
                 </select>
                 <br><br>
-                <label for="setGoal">Create Workout Goal: </label>
+                <label for="setGoal">What do you want to focus on?</label>
                 <select name="setGoal" id="setGoal" onChange="changeGoalSelect()">
-                    <option value="Lose Fat">Lose Fat</option>
-                    <option value="Gain Muscle">Gain Muscle </option>
-                    <option value="Running">Run More</option>
+                    <option value="Weightlifting">Weightlifting </option>
+                    <option value="Running">Running</option>
                 </select>
                 <br><br>
-                <label for="setRoutine">Select a Routine: </label>
+                <label for="setRoutine">Choose Specific Area:</label>
                 <select name="setRoutine" id="setRoutine">
-                    <option value="Nutrition">Optimize Nutrition</option>
+                    <option value="Upper Body">Upper Body</option>
+                    <option value="Lower Body">Lower Body</option>
+                    <option value="Full Body">Full Body</option>
                 </select>
                 <br><br>
 
@@ -83,9 +84,8 @@
         const goalSelect = document.getElementById("setGoal");
         const routineSelect = document.getElementById("setRoutine");
         const routines = {
-            "Gain Muscle": ["Upper Body Workout", "Lower Body Workout", "Full Body Workout"],
+            "Weightlifting": ["Upper Body", "Lower Body", "Full Body"],
             "Running": ["Sprint Faster", "Run Longer"],
-            "Lose Fat": ["Optimize Nutrition"]
         };
 
         function changeGoalSelect(){

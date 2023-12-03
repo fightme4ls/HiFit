@@ -47,6 +47,7 @@ app.post('/home.html', async (req, res) =>{
   const userID = await getUserID(userData.name);
 
   await createRunningForm(userID, runDate, runLength, distance, time, place, runNotes);
+  res.redirect('/home.html');
 });
 
 app.post('/login.html', async (req, res) => {

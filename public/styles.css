@@ -48,6 +48,10 @@ body {
     max-width:1300px;
 }
 
+#loginForm{
+    min-width:500px;
+}
+
 .form, .progress, .check{
     background-color: #EEE2DC;
     margin: 5px 20px;
@@ -59,6 +63,7 @@ body {
 
 .forms{
     border: none;
+    max-width:350px;
 }
 
 .progress{
@@ -106,6 +111,10 @@ button{
 }
 
 #runInputs{
+    display: none;
+}
+
+#liftInputs{
     display: none;
 }
 

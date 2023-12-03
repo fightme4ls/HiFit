@@ -38,6 +38,21 @@ function getWeightFormValues(){
   console.log(weightNotes);
 }
 
+function getLiftFormValues(){
+  liftDate = document.getElementById('liftDate').value;
+  didSquat = document.getElementById('lift1').checked;
+  didBench = document.getElementById('lift2').checked;
+  didPullups = document.getElementById('lift3').checked;
+  didDeadlift = document.getElementById('lift4').checked;
+  didLegPress = document.getElementById('lift5').checked;
+  console.log(liftDate);
+  console.log(didSquat);
+  console.log(didBench);
+  console.log(didPullups);
+  console.log(didDeadlift);
+  console.log(didLegPress);
+}
+
 function storeUsername(){
   username = document.getElementById('loginUsername').value;
   localStorage.setItem('username', username);
@@ -51,6 +66,7 @@ function updateGoal(){
 function swapFormToWeight(){
   document.getElementById("weightInputs").style.display = 'block';
   document.getElementById("runInputs").style.display = "none";
+  document.getElementById("liftInputs").style.display = "none";
   document.getElementById("placeholder").style.display = "none";
   document.getElementById("workoutPageButton").style.display = "block";
 }
@@ -58,6 +74,15 @@ function swapFormToWeight(){
 function swapFormToRun(){
   document.getElementById("runInputs").style.display = "block";
   document.getElementById("weightInputs").style.display = "none";
+  document.getElementById("liftInputs").style.display = "none";
+  document.getElementById("placeholder").style.display = "none";
+  document.getElementById("workoutPageButton").style.display = "none";
+}
+
+function swapFormToLift(){
+  document.getElementById("runInputs").style.display = "none";
+  document.getElementById("weightInputs").style.display = "none";
+  document.getElementById("liftInputs").style.display = "block";
   document.getElementById("placeholder").style.display = "none";
   document.getElementById("workoutPageButton").style.display = "none";
 }

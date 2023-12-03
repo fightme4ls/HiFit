@@ -15,7 +15,7 @@
             </div>
                 <p id="health"> <strong>Health Metrics: </strong></p>
                 <p id="weightGoal">Your Weight Goal: </p>
-                <p id="username" name="userHead">Alex Test</p>
+                <p id="usernameElement" name="userHead">Alex Test</p>
                 <p><a href="./create.html">Visit the Create Page</a></p>
                 <p><a href="./login.html">Visit the Login Page</a></p>
                 <br>
@@ -26,13 +26,16 @@
                 <div id="runFormButton">
                     <button type="button" class="runForm" onclick="swapFormToRun()">Run Form</button>
                 </div>
+
+
                 <section class = "form">
 
                     <div id="weightInputs">
-                    <form>
+                    <form action="home.html" method="post">
                         <fieldset class = "forms">
                             <label for = "weightDate">What day is it? </label>
                             <input type = "text" placeholder="YYYY-MM-DD" id="weightDate" name = "weightDate">
+                            <input type = "date" id="weightDate" name = "weightDate">
                             <br><br>
                             <label for = "weightLength">How long did you workout today: </label>
                             <input type = "text" id="weightLength" name = "weightLength">
@@ -49,10 +52,11 @@
                     </div>
 
                     <div id="runInputs">
-                        <form>
+                        <form action="home.html" method="post">
                             <fieldset class = "forms">
                                 <label for = "runDate">What day is it? </label>
                                 <input type = "text" placeholder="YYYY-MM-DD" id="runDate" name = "runDate">
+                                <input type = "date" id="runDate" name = "runDate">
                                 <br><br>
                                 <label for = "runLength">How long did you run today: </label>
                                 <input type = "text" id="runLength" name = "runLength">
@@ -107,30 +111,74 @@
     
 
     <div class="progress">
-        <h1 class="bar">Temp</h1>
-        <div class="videos">
-                <iframe
-                id="frame1"
-                className="move"
-                src="https://www.youtube.com/embed/cuh5HsU7WQQ?si=5-VJZ4icUg3ZMJTt"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            ></iframe>
-    
-            <iframe
-                id="frame2"
-                className="move"
-                src="https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            ></iframe>
+        <h2>Weight Progress Bar</h2>
+        <div id="healthProgress">
+            <div id="healthBar"> 
+                <p id="progressBarNumber">130/150</p>
+            </div>
+          </div>
+
+        <div class="videos" id="videos"></div>
+            <script>
+
+                const getRandomNumArr = (max) => {
+                    const numArr = [];
+                    while (numArr.length < max) {
+                        const randNum = Math.floor(Math.random() * max);
+                            if (numArr.indexOf(randNum) === -1) {
+                                numArr.push(randNum)
+                            }
+                        }
+                        console.log(numArr);
+                    return numArr;
+                }
+                
+                const videos = ["cuh5HsU7WQQ?si=5-VJZ4icUg3ZMJTt", "aui0gg_Zstc?si=YChOOZaFjqHcnCA2","h63JTsVdntw?si=2qCpKhG_FNrgrfPJ","__7abSf4D7Q?si=-3zpE3CR3r_WHFuM","1bP5AvsRex4?si=xxjypihQCL96Q584","qkzKd2Pk-5I?si=OaQRC9mQSz6RGz9x"]
+                var numOfVideos = 3;
+                const randomNumArr = getRandomNumArr(videos.length-1);
+                for (let i = 0; i < numOfVideos; i++) {
+                    var iframe = document.createElement("iframe");
+                    var iframeHTML = `<iframe id='frame"${i} className='move' title='YouTube video player' src= "https://www.youtube.com/embed/${videos[randomNumArr[i]]}" 'frameborder='0' width = 256px allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>`;
+                    document.getElementById("videos").innerHTML += iframeHTML;
+                }
+            </script>
         </div>
     </div>
 </div>
+
+<script>
+    // On page load, check for the username parameter and update the element
+
+    fetch('/api/user')
+      .then(response => response.json())
+      .then(data => {
+        // Update the HTML content with the received data
+        document.getElementById('usernameElement').innerHTML = `
+          <p>Name: ${data.name}</p>
+          <p>Password: ${data.password}</p>
+          <p>Current Weight: ${data.weight}</p>
+          <p>Target Weight: ${data.targetWeight}</p>
+        `;
+
+        var weightLeft = Math.abs(data.weight - data.targetWeight);
+        document.getElementById('progressBarNumber').innerHTML = `
+        <p>${data.weight} => ${data.targetWeight}</p>
+        <p>${weightLeft} lbs left to lose!</p>
+        `;
+        
+        var barWidth = document.getElementById("healthBar");
+        var currentWeight = data.weight;
+        var targetWeight = data.targetWeight;
+        //console.log(targetWeight)
+        //console.log (currentWeight);
+        if(currentWeight > targetWeight){
+            barWidth.style.width = ((targetWeight/currentWeight)*100 + "%");
+        } else {
+            barWidth.style.width = ((currentWeight/targetWeight)*100 + "%");
+        }
+      })
+      .catch(error => console.error('Error:', error));
+</script>
 
 <script src="script.js"></script>
 

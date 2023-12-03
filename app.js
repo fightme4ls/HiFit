@@ -27,6 +27,15 @@ app.get('/create', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/create.html'));
 });
 
+app.post('/home.html', async (req, res) =>{
+  const weightDate = req.body.weightDate;
+  const weightLength = req.body.weightLength;
+  const currentWeight = req.body.currentWeight;
+  const weightNotes = req.body.weightNotes;
+
+  
+});
+
 app.post('/login.html', async (req, res) => {
   const username = req.body.loginUsername;
   const password = req.body.loginPassword;
@@ -40,7 +49,7 @@ app.post('/login.html', async (req, res) => {
     targetWeight: target_weight,
     // Add more data as needed
   };
-  
+
   if(valid){
     res.redirect('/home.html');
   } else {

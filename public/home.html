@@ -13,6 +13,20 @@
                 <h1 id="HiFit"><u>HiFit </u></h1>
                 <img src="logo.png" alt="HiFit Logo" id="logo">
             </div>
+            <table id="myTable">
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+            <button onclick="getInputs()">Get Inputs</button>
+
                 <p id="health"> <strong>Health Metrics: </strong></p>
                 <p id="weightGoal">Your Weight Goal: </p>
                 <p id="usernameElement" name="userHead">Alex Test</p>
@@ -26,10 +40,12 @@
                 <div id="runFormButton">
                     <button type="button" class="runForm" onclick="swapFormToRun()">Run Form</button>
                 </div>
+
+
                 <section class = "form">
 
                     <div id="weightInputs">
-                    <form>
+                    <form action="home.html" method="post">
                         <fieldset class = "forms">
                             <label for = "weightDate">What day is it? </label>
                             <input type = "date" id="weightDate" name = "weightDate">
@@ -49,7 +65,7 @@
                     </div>
 
                     <div id="runInputs">
-                        <form>
+                        <form action="home.html" method="post">
                             <fieldset class = "forms">
                                 <label for = "runDate">What day is it? </label>
                                 <input type = "date" id="runDate" name = "runDate">
@@ -176,6 +192,30 @@
         }
       })
       .catch(error => console.error('Error:', error));
+
+    function getInputs() {
+        var table = document.getElementById("myTable");
+        var inputs = [];
+
+        // Iterate through rows
+        for (var i = 0; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var rowData = {};
+
+            // Iterate through cells in the row
+            for (var j = 0; j < row.cells.length; j++) {
+                var cell = row.cells[j];
+                var input = cell.querySelector("input");
+                // Assuming input fields are present in each cell
+                if (input) {
+                    rowData[input.name] = input.value;
+                }
+            }
+            inputs.push(rowData);
+        }
+        // Display the collected inputs in the console (you can modify this part as needed)
+        console.log(inputs);
+    }
 </script>
 
 <script src="script.js"></script>

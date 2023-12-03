@@ -114,9 +114,6 @@
                 <p id="progressBarNumber">130/150</p>
             </div>
           </div>
-          <button type="button" class="submit" onclick="moveBar()">
-            Click Me
-          </button>
 
         <div class="videos" id="videos"></div>
             <script>
@@ -160,7 +157,7 @@
           <p>Target Weight: ${data.targetWeight}</p>
         `;
 
-        var weightLeft = data.weight - data.targetWeight;
+        var weightLeft = Math.abs(data.weight - data.targetWeight);
         document.getElementById('progressBarNumber').innerHTML = `
         <p>${data.weight} => ${data.targetWeight}</p>
         <p>${weightLeft} lbs left to lose!</p>
@@ -169,8 +166,8 @@
         var barWidth = document.getElementById("healthBar");
         var currentWeight = data.weight;
         var targetWeight = data.targetWeight;
-        console.log(targetWeight)
-        console.log (currentWeight);
+        //console.log(targetWeight)
+        //console.log (currentWeight);
         if(currentWeight > targetWeight){
             barWidth.style.width = ((targetWeight/currentWeight)*100 + "%");
         } else {

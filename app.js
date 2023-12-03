@@ -40,6 +40,7 @@ app.post('/login.html', async (req, res) => {
     targetWeight: target_weight,
     // Add more data as needed
   };
+  
   if(valid){
     res.redirect('/home.html');
   } else {

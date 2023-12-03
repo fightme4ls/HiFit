@@ -108,3 +108,25 @@ button{
 #placeholder{
     opacity: 0;
 }
+
+#progressBarNumber{
+    text-align: center;
+    font-size: 20px;
+}
+button{
+    background-color:#EEE2DC;
+    padding: 5px 5px;
+    border-radius: 8px;
+    border-color:#BAB2B5 ;
+}
+
+#healthProgress {
+    width: 100%;
+    background-color: black;
+}
+
+#healthBar {
+    width: 50%;
+    height: 50px;
+    background-color: greenyellow;
+}

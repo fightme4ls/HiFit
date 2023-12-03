@@ -15,6 +15,18 @@ function getRunFormValues(){
     console.log(runNotes);
 }
 
+function moveBar() {
+  var barWidth = document.getElementById("healthBar");
+  var currentWeight = 140;
+  var targetWeight = 150;
+  console.log (currentWeight);
+  if(currentWeight>targetWeight){
+    barWidth.style.width = ((targetWeight/currentWeight)*100 + "%");
+  } else {
+    barWidth.style.width = ((currentWeight/targetWeight)*100 + "%");
+  }
+}
+
 function getWeightFormValues(){
   weightDate = document.getElementById('weightDate').value;
   weightLength = document.getElementById('weightLength').value;

@@ -106,7 +106,16 @@
     
 
     <div class="progress">
-        <h1 class="bar">Temp</h1>
+        <h2>Weight Progress Bar</h2>
+        <div id="healthProgress">
+            <div id="healthBar"> 
+                <p id="progressBarNumber">130/150</p>
+            </div>
+          </div>
+          <button type="button" class="submit" onclick="moveBar()">
+            Click Me
+          </button>
+
         <div class="videos" id="videos"></div>
             <script>
                 const videos = ["cuh5HsU7WQQ?si=5-VJZ4icUg3ZMJTt", "aui0gg_Zstc?si=YChOOZaFjqHcnCA2","h63JTsVdntw?si=2qCpKhG_FNrgrfPJ","__7abSf4D7Q?si=-3zpE3CR3r_WHFuM","1bP5AvsRex4?si=xxjypihQCL96Q584","qkzKd2Pk-5I?si=OaQRC9mQSz6RGz9x"]
@@ -124,6 +133,7 @@
 
 <script>
     // On page load, check for the username parameter and update the element
+
     fetch('/api/user')
       .then(response => response.json())
       .then(data => {
@@ -134,6 +144,23 @@
           <p>Current Weight: ${data.weight}</p>
           <p>Target Weight: ${data.targetWeight}</p>
         `;
+
+        var weightLeft = data.weight - data.targetWeight;
+        document.getElementById('progressBarNumber').innerHTML = `
+        <p>${data.weight} => ${data.targetWeight}</p>
+        <p>${weightLeft} lbs left to lose!</p>
+        `;
+        
+        var barWidth = document.getElementById("healthBar");
+        var currentWeight = data.weight;
+        var targetWeight = data.targetWeight;
+        console.log(targetWeight)
+        console.log (currentWeight);
+        if(currentWeight > targetWeight){
+            barWidth.style.width = ((targetWeight/currentWeight)*100 + "%");
+        } else {
+            barWidth.style.width = ((currentWeight/targetWeight)*100 + "%");
+        }
       })
       .catch(error => console.error('Error:', error));
 </script>

@@ -80,7 +80,6 @@ function switchToLoginPage() {
     window.location.href = "login.html";
 }
 
-
 function getFormValues() {
     switchToLoginPage();
 }

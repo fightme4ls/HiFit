@@ -69,9 +69,11 @@ body {
 }
 
 .videos{
-    display: flex;
-    justify-content: stretch;
-    flex-grow: 3;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+    
 }
 
 .bar{
@@ -130,11 +132,13 @@ button{
 
 #healthProgress {
     width: 100%;
+    
     background-color: rgb(70, 70, 70);
 }
 
 #healthBar {
     width: 50%;
     height: 50px;
+    margin: 4px;
     background-color: gold;
 }

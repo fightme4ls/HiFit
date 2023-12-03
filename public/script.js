@@ -19,7 +19,7 @@ function moveBar() {
   var barWidth = document.getElementById("healthBar");
   var currentWeight = 140;
   var targetWeight = 150;
-  console.log (currentWeight);
+  //console.log (currentWeight);
   if(currentWeight>targetWeight){
     barWidth.style.width = ((targetWeight/currentWeight)*100 + "%");
   } else {

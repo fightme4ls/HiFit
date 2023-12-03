@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import { createUser, validateUser, getUserWeight, getTargetWeight} from './database.js';
+import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -27,13 +27,26 @@ app.get('/create', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/create.html'));
 });
 
+app.get('/workout', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/workout.html'));
+});
+
+
 app.post('/home.html', async (req, res) =>{
   const weightDate = req.body.weightDate;
   const weightLength = req.body.weightLength;
   const currentWeight = req.body.currentWeight;
   const weightNotes = req.body.weightNotes;
 
-  
+  const runDate = req.body.runDate;
+  const runLength = req.body.runLength;
+  const distance = req.body.distance; 
+  const time = req.body.time; 
+  const place = req.body.place; 
+  const runNotes = req.body.runNotes;
+  const userID = await getUserID(userData.name);
+
+  await createRunningForm(userID, runDate, runLength, distance, time, place, runNotes);
 });
 
 app.post('/login.html', async (req, res) => {

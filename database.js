@@ -24,9 +24,7 @@ export async function getUserID(email) {
         const user = rows[0];
         const storedID = user.userID; 
         return storedID;
-    } else {
-        return false;
-    }
+    } 
 }
 
 export async function validateUser(email, password) {
@@ -64,6 +62,19 @@ export async function createUser(username, email, password, currentWeight, targe
     try{
         await pool.query('INSERT INTO hifit.users (username, email, password, weight, target_weight, target_date, goal_type)' 
         + ' VALUES (?, ?, ?, ?, ?, ?, ?)',[username, email, password, currentWeight, targetWeight, targetDate, goal]);
+        console.log("Stored properly!")
+        return "Stored Successfully!";
+    } catch (error) {
+        // Handle errors if needed
+        console.error('Error creating user:', error);
+        throw error; 
+    }
+}
+
+export async function createRunningForm(userID, runDate, runLength, distance, time, place, runNotes) {
+    try{
+        await pool.query('INSERT INTO hifit.running_log (userID, exercise_date, length, distance, time, location, notes)' 
+        + ' VALUES (?, ?, ?, ?, ?, ?, ?)',[userID, runDate, runLength, distance, time, place, runNotes]);
         return "Stored Successfully!";
     } catch (error) {
         // Handle errors if needed

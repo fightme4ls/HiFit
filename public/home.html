@@ -31,7 +31,7 @@
                 <section class = "form">
 
                     <div id="weightInputs">
-                    <form action="home.html" method="post">
+                    <form action="home.html" method="POST">
                         <fieldset class = "forms">
                             <label for = "weightDate">What day is it? </label>
                             <input type = "date" id="weightDate" name = "weightDate">
@@ -45,13 +45,13 @@
                             <label for = "weightNotes">Notes: </label>
                             <textarea id="weightNotes" name = "weightNotes" rows="3" cols="30"></textarea>
                             <br><br>
-                            <button type="button" class="submit" onclick="getWeightFormValues()">Submit</button>
+                            <button type="submit" class="submit" onclick="getWeightFormValues()">Submit</button>
                         </fieldset>
                     </form>
                     </div>
 
                     <div id="runInputs">
-                        <form action="home.html" method="post">
+                        <form action="home.html" method="POST">
                             <fieldset class = "forms">
                                 <label for = "runDate">What day is it? </label>
                                 <input type = "date" id="runDate" name = "runDate">
@@ -66,12 +66,12 @@
                                 <input type = "text" id="time" name = "time">
                                 <br><br>
                                 <label for = "place">Location: </label>
-                                <input type = "text" id="place" name = "places">
+                                <input type = "text" id="place" name = "place">
                                 <br><br>
                                 <label for = "runNotes">Notes: </label>
                                 <textarea id="runNotes" name = "runNotes" rows="3" cols="30"></textarea>
                                 <br><br>
-                                <button type="button" class="submit" onclick="getRunFormValues()">Submit</button>
+                                <button type="submit" class="submit" onclick="getRunFormValues()">Submit</button>
                             </fieldset>
                         </form>
                     </div>

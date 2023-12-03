@@ -10,6 +10,8 @@ html {
 
 body {
     background-color: #EDC7B7;
+    position: relative;
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 #HiFit{
@@ -97,6 +99,8 @@ button{
     padding: 5px 5px;
     border-radius: 8px;
     border-color:#BAB2B5 ;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    transition: background-color 0.3s;
 }
 
 #weightInputs{
@@ -126,8 +130,8 @@ button{
 }
 button{
     background-color:#EEE2DC;
-    padding: 5px 5px;
-    border-radius: 8px;
+    padding: 10px 10px;
+    border-radius: 20px;
     border-color:#BAB2B5 ;
 }
 
@@ -142,4 +146,71 @@ button{
     height: 50px;
     margin: 4px;
     background-color: gold;
+}
+.dumbell {
+    position: absolute;
+    width: 300px; /* Adjust the size as needed */
+    height: 150px; /* Adjust the size as needed */
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+.run {
+    position: absolute;
+    width: 200px; /* Adjust the size as needed */
+    height: 150px; /* Adjust the size as needed */
+}
+button:hover {
+    background-color: #D1B2A0; /* Change the color when hovering */
+}
+
+button:active {
+    background-color: #B79E8F; /* Change the color when pressed */
+}
+input[type="password"] {
+    padding: 3px; /* Adjust padding as needed */
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; /* Adjust border-radius for rounded corners */
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+input[type="text"] {
+    padding: 3px; /* Adjust padding as needed */
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; /* Adjust border-radius for rounded corners */
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+input[type="target"] {
+    padding: 3px; /* Adjust padding as needed */
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; /* Adjust border-radius for rounded corners */
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+input[type="date"] {
+    padding: 3px; /* Adjust padding as needed */
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; /* Adjust border-radius for rounded corners */
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+input[id="workoutFrequency"] {
+    padding: 3px; /* Adjust padding as needed */
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; /* Adjust border-radius for rounded corners */
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+select {
+    appearance: none;
+    padding: 3px; /* Adjust padding as needed */
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; /* Adjust border-radius for rounded corners */
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    width: 15%; /* Adjust width as needed */
+    position: relative;
 }

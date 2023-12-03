@@ -1,75 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HiFIt</title>
-    <link rel="stylesheet" href="styles.css">
-    
-    <script src="/app.js" ></script>
-    <script src = "/youtube+bar.js"></script>
-</head>
-<body>
-    <div class = "home_container">
-        <div class = "form">
-            <div class = "header">
-                <h1 id="HiFit"><u>HiFit </u></h1>
-                <img src="logo.png" alt="HiFit Logo" id="logo">
-            </div>
-                <p id="health"> <strong>Health Metrics: </strong></p>
-                <p id="weightGoal">Your Weight Goal: </p>
-                <p><a href="./create.html">Visit the Create Page</a></p>
-                <p><a href="./login.html">Visit the Login Page</a></p>
-                <br>
-                <section class = "form">
-                    <form>
-                        <fieldset class = "forms">
-                            <label for = "length">How long did you workout today: </label>
-                            <input type = "text" id="length" name = "length">
-                            <br><br>
-                            <label for = "reps">Reps: </label>
-                            <input type = "text" id="reps" name = "reps">
-                            <br><br>
-                            <label for = "lifts">Lifts: </label>
-                            <input type = "text" id="lifts" name = "lifts">
-                            <br><br>
-                            <label for = "sets">Sets: </label>
-                            <input type = "text" id="sets" name = "sets">
-                            <br><br>
-                            <label for = "other">Other (temporary): </label>
-                            <input type = "text" id="other" name = "other">
-                            <br><br>
-                            <button type="button" class="submit" onclick="getFormValues()">Submit</button>
-                        </fieldset>
-                    </form>
-                </section>
-        </div>
-    
+    <link rel="stylesheet" href="styles.css" />
 
-    <div class="progress">
-            <div id ="healthProgress">
-                <div id="healthBar"></div>
-            </div>
-                <button type = "button" class = "submit" onclick="moveBar()">Click Me</button> 
-            <script>
-                function moveBar() {
-                    console.log ("hello");
-                }
-            </script>
-        <div class="videos">
-                <span id = "videoHTML1"></span>
-    
-            <iframe
-                id="frame2"
-                className="move"
-                src="https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            ></iframe>
+    <script src="/app.js"></script>
+    <script src="/youtube+bar.js"></script>
+  </head>
+  <body>
+    <div class="home_container">
+      <div class="form">
+        <div class="header">
+          <h1 id="HiFit"><u>HiFit </u></h1>
+          <img src="logo.png" alt="HiFit Logo" id="logo" />
         </div>
+        <p id="health"><strong>Health Metrics: </strong></p>
+        <p id="weightGoal">Your Weight Goal:</p>
+        <p><a href="./create.html">Visit the Create Page</a></p>
+        <p><a href="./login.html">Visit the Login Page</a></p>
+        <br />
+        <section class="form">
+          <form>
+            <fieldset class="forms">
+              <label for="length">How long did you workout today: </label>
+              <input type="text" id="length" name="length" />
+              <br /><br />
+              <label for="reps">Reps: </label>
+              <input type="text" id="reps" name="reps" />
+              <br /><br />
+              <label for="lifts">Lifts: </label>
+              <input type="text" id="lifts" name="lifts" />
+              <br /><br />
+              <label for="sets">Sets: </label>
+              <input type="text" id="sets" name="sets" />
+              <br /><br />
+              <label for="other">Other (temporary): </label>
+              <input type="text" id="other" name="other" />
+              <br /><br />
+              <button type="button" class="submit" onclick="getFormValues()">
+                Submit
+              </button>
+            </fieldset>
+          </form>
+        </section>
+      </div>
+
+      <div class="progress">
+        <div id="healthProgress">
+          <div id="healthBar"></div>
+        </div>
+        <button type="button" class="submit" onclick="moveBar()">
+          Click Me
+        </button>
+        <script>
+          function moveBar() {
+            console.log("hello");
+          }
+        </script>
+        <div class="videos">
+          <div id="videoHTML1"></div>
+          <script>
+            const videos = ["https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2", "https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2,"]
+            for (let i = 0; i <= videos.length; i++) {
+                var iframe = document.createElement("iframe");
+                var iframeHTML = "<iframe id='frame" + i + "' className='move' title='YouTube video player' src=' "+ videos[i] +" 'frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>";
+                document.getElementById("videoHTML1").innerHTML = iframeHTML;
+            }
+          </script>
+        </div>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>

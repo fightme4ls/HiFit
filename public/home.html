@@ -159,10 +159,17 @@
         `;
 
         var weightLeft = Math.abs(data.weight - data.targetWeight);
-        document.getElementById('progressBarNumber').innerHTML = `
-        <p>${data.weight} => ${data.targetWeight}</p>
-        <p>${weightLeft} lbs left to lose!</p>
-        `;
+        if(data.weight > data.targetWeight){
+            document.getElementById('progressBarNumber').innerHTML = `
+            <p>${data.weight} => ${data.targetWeight}</p>
+            <p>${weightLeft} lbs left to lose!</p>
+            `;
+        } else {
+            document.getElementById('progressBarNumber').innerHTML = `
+            <p>${data.weight} => ${data.targetWeight}</p>
+            <p>${weightLeft} lbs left to gain!</p>
+            `;
+        }
         
         var barWidth = document.getElementById("healthBar");
         var currentWeight = data.weight;

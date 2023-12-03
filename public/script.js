@@ -34,10 +34,33 @@ function swapFormToWeight(){
   document.getElementById("weightInputs").style.display = 'block';
   document.getElementById("runInputs").style.display = "none";
   document.getElementById("placeholder").style.display = "none";
+  document.getElementById("workoutPageButton").style.display = "block";
 }
 
 function swapFormToRun(){
   document.getElementById("runInputs").style.display = "block";
   document.getElementById("weightInputs").style.display = "none";
   document.getElementById("placeholder").style.display = "none";
+  document.getElementById("workoutPageButton").style.display = "none";
+}
+
+function switchToCreateAccountPage() {
+    window.location.href = "create.html";
+}
+function bypass() {
+    window.location.href = "home.html";
+}
+
+function switchToLoginPage() {
+    window.location.href = "login.html";
+}
+
+
+function getFormValues() {
+
+    switchToLoginPage();
+}
+
+function switchToWorkoutPage() {
+    window.location.href = "workout.html";
 }

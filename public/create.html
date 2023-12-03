@@ -59,10 +59,15 @@
                 </select>
                 <br><br>
                 <label for="setGoal">Create Workout Goal: </label>
-                <select name="setGoal" id="setGoal">
+                <select name="setGoal" id="setGoal" onChange="changeGoalSelect()">
                     <option value="Lose Fat">Lose Fat</option>
                     <option value="Gain Muscle">Gain Muscle </option>
                     <option value="Running">Run More</option>
+                </select>
+                <br><br>
+                <label for="setRoutine">Select a Routine: </label>
+                <select name="setRoutine" id="setRoutine">
+                    <option value="Nutrition">Optimize Nutrition</option>
                 </select>
                 <br><br>
 
@@ -78,11 +83,28 @@
 
   
     <script>
+        const goalSelect = document.getElementById("setGoal");
+        const routineSelect = document.getElementById("setRoutine");
+        const routines = {
+            "Gain Muscle": ["Upper Body Workout", "Lower Body Workout", "Full Body Workout"],
+            "Running": ["Sprint Faster", "Run Longer"],
+            "Lose Fat": ["Optimize Nutrition"]
+        };
+
+        function changeGoalSelect(){
+            while(routineSelect.options.length != 0){
+                routineSelect.options.remove(0);
+            }
+            const routinesForGoal = routines[goalSelect.value];
+            for (let i = 0; i < routinesForGoal.length; i++) {
+                routineSelect.options.add(new Option(routinesForGoal[i], i));
+            }
+        }
+
         function switchToLoginPage() {
             window.location.href = "login.html";
         }
 
-      
         function getFormValues() {
        
             switchToLoginPage();

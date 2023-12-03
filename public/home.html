@@ -59,16 +59,15 @@
             console.log("hello");
           }
         </script>
-        <div class="videos">
-          <div id="videoHTML1"></div>
-          <div id="videoHTML2"></div>
+        <div class="videos" id="videos">
           
           <script>
-            const videos = ["https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2", "https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2,"]
-            for (let i = 0; i < videos.length; i++) {
+            const videos = ["https://www.youtube.com/embed/cuh5HsU7WQQ?si=5-VJZ4icUg3ZMJTt", "https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2,"]
+            for (let i = 0; i < 2; i++) {
                 var iframe = document.createElement("iframe");
-                var iframeHTML = "<iframe id='frame" + i + "' className='move' title='YouTube video player' src=' "+ videos[i] +" 'frameborder='0' width = 256px allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>";
-                document.getElementById("videoHTML" + (i+1)).innerHTML = iframeHTML;
+                var randomInt = Math.floor(Math.random() * videos.length);
+                var iframeHTML = "<iframe id='frame" + i + "' className='move' title='YouTube video player' src=' "+ videos[randomInt] +" 'frameborder='0' width = 256px allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>";
+                document.getElementById("videos").innerHTML += iframeHTML;
             }
           </script>
 

@@ -61,14 +61,17 @@
         </script>
         <div class="videos">
           <div id="videoHTML1"></div>
+          <div id="videoHTML2"></div>
+          
           <script>
             const videos = ["https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2", "https://www.youtube.com/embed/aui0gg_Zstc?si=YChOOZaFjqHcnCA2,"]
-            for (let i = 0; i <= videos.length; i++) {
+            for (let i = 0; i < videos.length; i++) {
                 var iframe = document.createElement("iframe");
-                var iframeHTML = "<iframe id='frame" + i + "' className='move' title='YouTube video player' src=' "+ videos[i] +" 'frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>";
-                document.getElementById("videoHTML1").innerHTML = iframeHTML;
+                var iframeHTML = "<iframe id='frame" + i + "' className='move' title='YouTube video player' src=' "+ videos[i] +" 'frameborder='0' width = 256px allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>";
+                document.getElementById("videoHTML" + (i+1)).innerHTML = iframeHTML;
             }
           </script>
+
         </div>
       </div>
     </div>

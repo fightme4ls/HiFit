@@ -20,14 +20,14 @@
         <section class="form">
             <form action="login.html"  method="POST">
         
-                <label for="loginUsername">Username/Email: </label>
+                <label for="loginUsername">Email: </label>
                 <input type="text" id="loginUsername" name="loginUsername">
                 <br><br>
                 <label for="loginPassword">Password: </label>
                 <input type="password" id="loginPassword" name="loginPassword">
                 <br><br>
                
-                <button type="submit" class="submit">Login</button>
+                <button type="submit" class="submit" onclick="storeUsername()">Login</button>
             </form>
         </section>
    
@@ -46,5 +46,6 @@
             window.location.href = "home.html";
         }
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

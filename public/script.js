@@ -1,4 +1,4 @@
-var goal, runDate, weightDate, weightLength, runLength, currentWeight, distance, time, place, runNotes, weightNotes = "";
+var goal, runDate, weightDate, weightLength, runLength, currentWeight, distance, time, place, runNotes, weightNotes, username = "";
 
 function getRunFormValues(){
     runDate = document.getElementById('runDate').value;
@@ -24,6 +24,12 @@ function getWeightFormValues(){
   console.log(weightLength);
   console.log(currentWeight);
   console.log(weightNotes);
+}
+
+function storeUsername(){
+  username = document.getElementById('loginUsername').value;
+  localStorage.setItem('username', username);
+  console.log(username);
 }
 
 function updateGoal(){

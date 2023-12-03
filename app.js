@@ -1,14 +1,13 @@
 import express from 'express'
 import path from 'path'
-import fs from 'fs'
-import { createUser, validateUser} from './database.js';
+import { createUser, validateUser, getUserWeight, getTargetWeight} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
-const actualUsername = "";
+let userData = {};
 
 app.use(express.static(path.join(__dirname, 'public'), { 'extensions': ['html', 'js'] }));
 
@@ -20,16 +19,7 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-  const isLoggedIn = true; 
   const filePath = path.join(__dirname, 'public/home.html');
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
-      return;
-    }
-    const modifiedContent = data.replace('<p id="username" name="userHead">Alex Test</p>', '<p id="username" name="userHead">New Username</p>');
-  });
   res.sendFile(filePath);
 });
 
@@ -38,9 +28,18 @@ app.get('/create', (req, res) => {
 });
 
 app.post('/login.html', async (req, res) => {
-  actualUsername = req.body.loginUsername;
+  const username = req.body.loginUsername;
   const password = req.body.loginPassword;
   const valid = await validateUser(username, password);
+  const currentWeight = await getUserWeight(username);
+  const target_weight = await getTargetWeight(username);
+  userData = {
+    name: username,
+    password: password,
+    weight: currentWeight,
+    targetWeight: target_weight,
+    // Add more data as needed
+  };
   if(valid){
     res.redirect('/home.html');
   } else {
@@ -50,6 +49,11 @@ app.post('/login.html', async (req, res) => {
       window.location.href = '/login.html'; </script>`);
   }
 });
+
+app.get('/api/user', (req, res) => {
+  res.json(userData);
+});
+
 
 app.post('/create.html', async(req, res) => {
   const username = req.body.username;
@@ -65,7 +69,7 @@ app.post('/create.html', async(req, res) => {
       alert('You Did Not Input All Your Information, Try Again.');
       window.location.href = '/create.html'; </script>`);
   } else {
-    const userCreation = await createUser(username,email,password,currentWeight,targetWeight,targetDate,goal);
+    await createUser(username,email,password,currentWeight,targetWeight,targetDate,goal);
     res.send(`
     <script>
       alert('Account Has Now Been Created, You may login!');

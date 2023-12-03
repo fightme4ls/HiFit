@@ -18,6 +18,17 @@ export async function getUser(email) {
     return rows;
 }
 
+export async function getUserID(email) {
+    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
+    if(rows.length > 0) {
+        const user = rows[0];
+        const storedID = user.userID; 
+        return storedID;
+    } else {
+        return false;
+    }
+}
+
 export async function validateUser(email, password) {
     const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
     if(rows.length > 0) {
@@ -29,11 +40,21 @@ export async function validateUser(email, password) {
     }
 }
  
-export async function pullUserWeight(email){
+export async function getUserWeight(email){
     const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
     if(rows.length > 0) {
         const user = rows[0];
-        return user.currentWeight;
+        return user.weight;
+    } else {
+        return false;
+    }
+}
+
+export async function getTargetWeight(email){
+    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
+    if(rows.length > 0) {
+        const user = rows[0];
+        return user.target_weight;
     } else {
         return false;
     }

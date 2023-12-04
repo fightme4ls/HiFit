@@ -223,4 +223,6 @@ button:hover {
     font-size: 1em; 
     font-family: 'javanese text', sans-serif; 
   }
-  
+.small-image{
+  height: 50px;
+}

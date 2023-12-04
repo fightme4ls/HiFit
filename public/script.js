@@ -127,9 +127,13 @@ function addWorkout() {
     var input3 = document.createElement('input');
 
     input.type = 'text';
+    input.name = 'exercise'; // Set the name attribute for the first input
     input1.type = 'text';
+    input1.name = 'sets'; // Set the name attribute for the second input
     input2.type = 'text';
+    input2.name = 'reps'; // Set the name attribute for the third input
     input3.type = 'text';
+    input3.name = 'weight'; // Set the name attribute for the fourth input
 
     cell1.appendChild(input);
     cell2.appendChild(input1);

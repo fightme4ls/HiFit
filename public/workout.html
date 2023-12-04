@@ -11,25 +11,24 @@
     <button type="button" id="backButton" class="backButton" onclick="bypass()">Back</button>
     <section class="forms">
         <div class="check">
-            
-            <form>
+            <form action="workout.html" method="POST">
                 <fieldset class = "forms">
-                    <table id="workoutTable">
+                    <table id="workoutTable" name = "workoutTable">
                         <tr>
                             <th>Exercise</th>
                             <th>Sets</th>
                             <th>Reps</th>
                             <th>Weight</th>
                         </tr>
-                        </table>
-                        <br>
-                        <button type="button" onclick="addWorkout()">Add workout</button>
-                        <button type="button" onclick="removeWorkout()">Remove workout</button>
-                        <br><br>
-                        <label for = "date">Date: </label>
-                        <input type = "date" id="date" name = "date">
-                        <br><br>
-                        <button type="button" class="submit" onclick="getInputs()">Submit</button>
+                    </table>
+                    <br>
+                    <button type="button" onclick="addWorkout()">Add workout</button>
+                    <button type="button" onclick="removeWorkout()">Remove workout</button>
+                    <br><br>
+                    <label for = "date">Date: </label>
+                    <input type = "date" id="date" name = "date">
+                    <br><br>
+                    <button type="submit" class="submit" onclick="getInputs()">Submit</button>
                 </fieldset>
             </form>
         </div>

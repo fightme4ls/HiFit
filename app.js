@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID, createExerciseForm} from './database.js';
+import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID, createExerciseForm, getGoal} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { create } from 'domain';
@@ -55,11 +55,13 @@ app.post('/login.html', async (req, res) => {
   const valid = await validateUser(username, password);
   const currentWeight = await getUserWeight(username);
   const target_weight = await getTargetWeight(username);
+  const goal = await getGoal(username);
   userData = {
     name: username,
     password: password,
     weight: currentWeight,
     targetWeight: target_weight,
+    goal: goal,
     // Add more data as needed
   };
 

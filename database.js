@@ -27,6 +27,16 @@ export async function getUserID(email) {
     } 
 }
 
+export async function getGoal(email){
+    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
+    if(rows.length > 0) {
+        const user = rows[0];
+        return user.goal_type;
+    } else {
+        return false;
+    }
+}
+
 export async function validateUser(email, password) {
     const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
     if(rows.length > 0) {

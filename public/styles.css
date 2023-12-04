@@ -69,6 +69,18 @@ body {
     max-width:350px;
 }
 
+#buttonBox{
+    display: flex;
+    flex-direction: row;
+    margin:auto;
+    justify-content: center;
+    align-content: center;
+}
+
+.workoutForm{
+    max-width: 800px;
+}
+
 .progress{
     flex:3 0 500px;
     display: flex;

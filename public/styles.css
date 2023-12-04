@@ -11,7 +11,7 @@ html {
 body {
     background-color: #EDC7B7;
     position: relative;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: ""
 }
 
 #HiFit{
@@ -29,8 +29,8 @@ body {
 }
 
 .header {
-    display: flex; /* Use flexbox to create a flexible container */
-    align-items: center; /* Center items vertically within the container */
+    display: flex;
+    align-items: center; 
     justify-content: center;
 }
 
@@ -50,10 +50,6 @@ body {
     max-width:1300px;
 }
 
-#loginForm{
-    min-width:500px;
-}
-
 .form, .progress, .check{
     background-color: #EEE2DC;
     margin: 5px 20px;
@@ -65,35 +61,32 @@ body {
 
 .forms{
     border: none;
-    max-width:350px;
 }
 
 .progress{
     flex:3 0 500px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .videos{
-    position:relative;
-    overflow: visible;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
     width: 100%;
-    height:65%;
-}
-#progressHeader{
-    padding-bottom: 20px;
-}
-#healthProgress {
-    width: 100%;
-    background-color: rgb(70, 70, 70);
-    margin-bottom:20px;
+    padding-top: 56.25%;
+    
 }
 
-#healthBar {
-    width: 50%;
-    height: 50px;
-    margin: 4px;
-    background-color: gold;
+.bar{
+    flex-grow: 1;
+}
+
+#frame1, #frame2{
+    width:100%;
+    height:100%;
+    margin:5px;
 }
 
 #health {
@@ -118,10 +111,6 @@ button{
     display: none;
 }
 
-#liftInputs{
-    display: none;
-}
-
 #placeholder{
     opacity: 0;
 }
@@ -142,7 +131,85 @@ button{
 button{
     background-color:#EEE2DC;
     padding: 10px 10px;
-    border-radius: 20px;
+    border-radius: 20   px;
     border-color:#BAB2B5 ;
 }
 
+#healthProgress {
+    width: 100%;
+    
+    background-color: rgb(70, 70, 70);
+}
+
+#healthBar {
+    width: 50%;
+    height: 50px;
+    margin: 4px;
+    background-color: gold;
+}
+.dumbell {
+    position: absolute;
+    width: 300px;
+    height: 150px; 
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+.run {
+    position: absolute;
+    width: 200px;
+    height: 150px; 
+}
+button:hover {
+    background-color: #D1B2A0; 
+}
+
+button:active {
+    background-color: #B79E8F; 
+}
+input[type="password"] {
+    padding: 3px;
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; 
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+input[type="text"] {
+    padding: 3px;
+    border: 1px solid #BAB2B5;
+    border-radius: 8px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+input[type="target"] {
+    padding: 3px;
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; 
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+input[type="date"] {
+    padding: 3px; 
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; 
+}
+input[id="workoutFrequency"] {
+    padding: 3px; 
+    border: 1px solid #BAB2B5;
+    border-radius: 8px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+select {
+    appearance: none;
+    padding: 3px; 
+    border: 1px solid #BAB2B5;
+    border-radius: 8px; 
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    width: 15%; 
+    position: relative;
+}

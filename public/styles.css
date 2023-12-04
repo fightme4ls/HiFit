@@ -15,7 +15,7 @@ body {
   font-weight: bold;
 }
 
-#HiFit{
+#HiFit, #details{
     text-align: center;
     font-size: 50px;
     margin-top: 5px;
@@ -55,7 +55,7 @@ body {
     min-width:500px;
 }
 
-.form, .progress, .check{
+.form, .progress, .check, .project-details{
     background-color: #EEE2DC;
     margin: 5px 20px;
     padding:15px;
@@ -225,4 +225,10 @@ button:hover {
   }
 .small-image{
   height: 50px;
+}
+ul {
+padding-left: 20px;
+}
+#details{
+  font-size: 30px;
 }

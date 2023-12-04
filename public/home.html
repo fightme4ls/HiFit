@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HiFit</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="logo.png" type="image/x-icon">
     </head>
 <body>
     <div class = "home_container">
@@ -25,6 +26,10 @@
                 <br>
                 <div id="runFormButton">
                     <button type="button" class="runForm" onclick="swapFormToRun()">Run Form</button>
+                </div>
+                <br>
+                <div id="liftFormButton">
+                    <button type="button" class="liftForm" onclick="swapFormToLift()">Lift Form </button>
                 </div>
 
 
@@ -76,6 +81,32 @@
                         </form>
                     </div>
 
+                    <div id="liftInputs">
+                        <form>
+                            <fieldset class = "forms">
+                                <label for = "liftDate">What day is it? </label>
+                                <input type = "date" id="liftDate" name = "liftDate">
+                                <br><br>
+                                <input type="checkbox" id="lift1" name="lift1" value="Squat">
+                                <label for="lift1">Squats</label>
+                                <input type="checkbox" id="lift2" name="lift2" value="Bench Press">
+                                <label for="lift2">Bench Press</label>
+                                <input type="checkbox" id="lift3" name="lift3" value="Pull-ups">
+                                <label for="lift3">Pull-ups</label>
+                                <br>
+                                <input type="checkbox" id="lift4" name="lift4" value="Deadlift">
+                                <label for="lift4">Deadlift</label>
+                                <input type="checkbox" id="lift5" name="lift5" value="Leg Press">
+                                <label for="lift5">Leg Press</label>
+                                <br><br>
+                                    <label for = "liftNotes">Notes: </label>
+                                    <textarea id="liftNotes" name = "liftNotes" rows="3" cols="30"></textarea>
+                                    <br><br>
+                                    <button type="button" class="submit" onclick="getLiftFormValues()">Submit</button>
+                            </fieldset>
+                        </form>
+                    </div>
+
                     <div id="placeholder">
                         <form>
                             <fieldset class = "forms">
@@ -101,6 +132,8 @@
                             </fieldset>
                         </form>
                     </div>
+
+                    
                     <br>
                     <button type="button" id="workoutPageButton" class="workoutPageButton" onclick="switchToWorkoutPage()">Input Your Full Workout Here</button>
                 </section>
@@ -108,7 +141,7 @@
         </div>
     
         <div class="progress">
-            <h2>Weight Progress Bar</h2>
+            <h2 id="progressHeader">Weight Progress Bar</h2>
                 <div id="healthProgress">
                     <div id="healthBar"> 
                         <p id="progressBarNumber">130/150</p>

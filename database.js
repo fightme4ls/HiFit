@@ -83,3 +83,15 @@ export async function createRunningForm(userID, runDate, runLength, distance, ti
     }
 }
 
+export async function createExerciseForm(userID, exercise, set, rep, weight, date) {
+    try{
+        await pool.query('INSERT INTO hifit.exercise_log (userID, exerciseName, sets, reps, weight, exercise_date)' 
+        + ' VALUES (?, ?, ?, ?, ?, ?)',[userID, exercise, set, rep, weight, date]);
+        return "Stored Successfully!";
+    } catch (error) {
+        // Handle errors if needed
+        console.error('Error creating user:', error);
+        throw error; 
+    }
+}
+

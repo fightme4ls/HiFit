@@ -38,6 +38,21 @@ function getWeightFormValues(){
   console.log(weightNotes);
 }
 
+function getLiftFormValues(){
+  liftDate = document.getElementById('liftDate').value;
+  didSquat = document.getElementById('lift1').checked;
+  didBench = document.getElementById('lift2').checked;
+  didPullups = document.getElementById('lift3').checked;
+  didDeadlift = document.getElementById('lift4').checked;
+  didLegPress = document.getElementById('lift5').checked;
+  console.log(liftDate);
+  console.log(didSquat);
+  console.log(didBench);
+  console.log(didPullups);
+  console.log(didDeadlift);
+  console.log(didLegPress);
+}
+
 function storeUsername(){
   username = document.getElementById('loginUsername').value;
   localStorage.setItem('username', username);
@@ -51,6 +66,7 @@ function updateGoal(){
 function swapFormToWeight(){
   document.getElementById("weightInputs").style.display = 'block';
   document.getElementById("runInputs").style.display = "none";
+  document.getElementById("liftInputs").style.display = "none";
   document.getElementById("placeholder").style.display = "none";
   document.getElementById("workoutPageButton").style.display = "block";
 }
@@ -58,6 +74,15 @@ function swapFormToWeight(){
 function swapFormToRun(){
   document.getElementById("runInputs").style.display = "block";
   document.getElementById("weightInputs").style.display = "none";
+  document.getElementById("liftInputs").style.display = "none";
+  document.getElementById("placeholder").style.display = "none";
+  document.getElementById("workoutPageButton").style.display = "none";
+}
+
+function swapFormToLift(){
+  document.getElementById("runInputs").style.display = "none";
+  document.getElementById("weightInputs").style.display = "none";
+  document.getElementById("liftInputs").style.display = "block";
   document.getElementById("placeholder").style.display = "none";
   document.getElementById("workoutPageButton").style.display = "none";
 }
@@ -102,9 +127,13 @@ function addWorkout() {
     var input3 = document.createElement('input');
 
     input.type = 'text';
+    input.name = 'exercise'; // Set the name attribute for the first input
     input1.type = 'text';
+    input1.name = 'sets'; // Set the name attribute for the second input
     input2.type = 'text';
+    input2.name = 'reps'; // Set the name attribute for the third input
     input3.type = 'text';
+    input3.name = 'weight'; // Set the name attribute for the fourth input
 
     cell1.appendChild(input);
     cell2.appendChild(input1);

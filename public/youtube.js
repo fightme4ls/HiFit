@@ -14,6 +14,6 @@ var numOfVideos = 4;
 const randomNumArr = getRandomNumArr(videos.length-1);
 for (let i = 0; i < numOfVideos; i++) {
     var iframe = document.createElement("iframe");
-    var iframeHTML = `<iframe id='videos' className='move' title='YouTube video player' src= "https://www.youtube.com/embed/${videos[randomNumArr[i]]}" 'frameborder='0' height = '60%'' width = '49%' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>`; 
+    var iframeHTML = `<iframe id='videos' className='move' title='YouTube video player' src= "https://www.youtube.com/embed/${videos[randomNumArr[i]]}" height = '60%'' width = '49%'></iframe>`; 
     document.getElementById("videos").innerHTML += iframeHTML;
 }

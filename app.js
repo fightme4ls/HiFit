@@ -1,8 +1,9 @@
 import express from 'express'
 import path from 'path'
-import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID} from './database.js';
+import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID, createExerciseForm} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { create } from 'domain';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -10,9 +11,7 @@ const app = express();
 let userData = {};
 
 app.use(express.static(path.join(__dirname, 'public'), { 'extensions': ['html', 'js'] }));
-
 app.use(express.urlencoded({ extended: true }));
-
 
 app.get('/', async (req, res) => {
   res.sendFile(path.join(__dirname, 'public/login.html'));
@@ -74,8 +73,34 @@ app.post('/login.html', async (req, res) => {
   }
 });
 
+
 app.get('/api/user', (req, res) => {
   res.json(userData);
+});
+
+app.post('/workout.html', async(req, res) => {
+  const exercises = Array.isArray(req.body.exercise) ? req.body.exercise : [req.body.exercise];
+  const sets = Array.isArray(req.body.sets) ? req.body.sets : [req.body.sets];
+  const reps = Array.isArray(req.body.reps) ? req.body.reps : [req.body.reps];
+  const weights = Array.isArray(req.body.weight) ? req.body.weight : [req.body.weight];
+  const date =  req.body.date;
+  const userID = await getUserID(userData.name);
+  // Assuming that all arrays have the same length, you can iterate over one of them
+  for (let i = 0; i < exercises.length; i++) {
+    const exercise = exercises[i];
+    const set = sets[i];
+    const rep = reps[i];
+    const weight = weights[i];
+    if(exercise == "" || set == "" || rep == "" || weight == "" || date == ""){
+      res.send(`
+      <script>
+        alert('You Did Not Input All Your Information, Try Again.');
+        window.location.href = '/workout.html'; </script>`);
+    } else {
+      await createExerciseForm(userID, exercise, set, rep, weight, date);
+    }
+  }
+  res.redirect('/home.html');
 });
 
 

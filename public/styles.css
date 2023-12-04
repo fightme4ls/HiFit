@@ -162,3 +162,46 @@ button{
 button:hover {
     background-color:#D4A18F;
   }
+
+  input[type="password"] {
+  
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold;
+  }
+  input[type="text"] {
+
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold;
+  }
+  
+  input[type="target"] {
+
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold;
+  }
+  input[type="date"] {
+ 
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold;
+  }
+  
+  select#workoutFrequency {
+  
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold;
+  }
+  select#workoutFrequencyGoal {
+
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold;
+  }
+  select#setGoal {
+
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold;
+  }
+  select#setRoutine {
+  
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold;
+  }

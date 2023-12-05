@@ -4,10 +4,21 @@ function showWorkoutForms(){
   fetch('/api/exercise')
   .then(response => response.json())
   .then(data => {
-    console.log(data);
-  });
-
-  
+      // Assuming data is an array of objects
+      console.log(data);
+      data.forEach(workout => {
+        // Access elements of each workout object
+        console.log('Workout ID:', workout.exerciseLogID);
+        console.log('Workout Name:', workout.exerciseName);
+        console.log('Workout Date:', workout.exercise_date);
+        console.log('Workout Reps:', workout.reps);
+        console.log('Workout Sets:', workout.userID);
+        console.log('Workout Weight:', workout.weight);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching workout data:', error);
+  });  
 }
 function showVideos(){
   fetch('/api/user')

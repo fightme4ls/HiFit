@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID, createExerciseForm, getGoal, createWeightForm} from './database.js';
+import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID, createExerciseForm, getGoal, createWeightForm, getAllExerciseForms} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { create } from 'domain';
@@ -11,6 +11,7 @@ const app = express();
 var authenticated = false;
 let userData = {};
 let weightData = {};
+let exerciseForm = {};
 
 
 app.use(express.static(path.join(__dirname, 'public'), { 'extensions': ['html', 'js'] }));
@@ -54,6 +55,9 @@ app.post('/login.html', async (req, res) => {
   const currentWeight = await getUserWeight(username);
   const target_weight = await getTargetWeight(username);
   const goal = await getGoal(username);
+  const userID = await getUserID(req.body.loginUsername);
+  console.log(userID);
+  exerciseForm = await getAllExerciseForms(userID);
   userData = {
     name: username,
     password: password,
@@ -67,7 +71,6 @@ app.post('/login.html', async (req, res) => {
     weight: currentWeight,
     targetWeight: target_weight,
   };
-
   if(valid){
     authenticated = true; 
     res.redirect('/home.html');
@@ -87,6 +90,10 @@ app.get('/api/weight', (req, res) => {
   res.json(weightData);
 });
 
+app.get('/api/exercise', (req, res) => {
+  res.json(exerciseForm);
+});
+
 app.post('/workout.html', async(req, res) => {
   const exercises = Array.isArray(req.body.exercise) ? req.body.exercise : [req.body.exercise];
   const sets = Array.isArray(req.body.sets) ? req.body.sets : [req.body.sets];
@@ -94,6 +101,7 @@ app.post('/workout.html', async(req, res) => {
   const weights = Array.isArray(req.body.weight) ? req.body.weight : [req.body.weight];
   const date =  req.body.date;
   const userID = await getUserID(userData.name);
+  exerciseForm = await getAllExerciseForms(userID);
   // Assuming that all arrays have the same length, you can iterate over one of them
   for (let i = 0; i < exercises.length; i++) {
     const exercise = exercises[i];

@@ -26,9 +26,9 @@ fetch('/api/weight')
   //console.log(targetWeight)
   //console.log (currentWeight);
   if(currentWeight > targetWeight){
-      barWidth.style.width = ((targetWeight/currentWeight)*100 + "%");
+      barWidth.style.width = ((targetWeight/currentWeight)*99 + "%");
   } else {
-      barWidth.style.width = ((currentWeight/targetWeight)*100 + "%");
+      barWidth.style.width = ((currentWeight/targetWeight)*99 + "%");
   }
 })
 .catch(error => console.error('Error:', error));

@@ -1,6 +1,14 @@
 var goal, runDate, weightDate, weightLength, runLength, currentWeight, distance, time, place, runNotes, weightNotes, username = "";
 
+function showWorkoutForms(){
+  fetch('/api/exercise')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  });
 
+  
+}
 function showVideos(){
   fetch('/api/user')
   .then(response => response.json())
@@ -58,9 +66,9 @@ function moveBar() {
     }  
 
     if(currentWeight>targetWeight){
-      barWidth.style.width = ((targetWeight/currentWeight)*100 + "%");
+      barWidth.style.width = ((targetWeight/currentWeight)*99 + "%");
     } else {
-      barWidth.style.width = ((currentWeight/targetWeight)*100 + "%");
+      barWidth.style.width = ((currentWeight/targetWeight)*99 + "%");
     }
   });
 }

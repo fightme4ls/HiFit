@@ -13,6 +13,11 @@ export async function getUsers() {
     return rows;
 }
 
+export async function getAllExerciseForms(userID) {
+    const [rows] = await pool.query("SELECT * FROM hifit.exercise_log WHERE userID = ?", [userID]);
+    return rows;
+}
+
 export async function getUser(email) {
     const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
     return rows;

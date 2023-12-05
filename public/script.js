@@ -1,25 +1,26 @@
 var goal, runDate, weightDate, weightLength, runLength, currentWeight, distance, time, place, runNotes, weightNotes, username = "";
 
 
-
-fetch('/api/user')
-.then(response => response.json())
-.then(data => {
-  goal = data.goal;
-  let videos 
-  if(goal == "Weightlifting"){
-    videos = ["cuh5HsU7WQQ?si=5-VJZ4icUg3ZMJTt", "aui0gg_Zstc?si=YChOOZaFjqHcnCA2","h63JTsVdntw?si=2qCpKhG_FNrgrfPJ","__7abSf4D7Q?si=-3zpE3CR3r_WHFuM","1bP5AvsRex4?si=xxjypihQCL96Q584","qkzKd2Pk-5I?si=OaQRC9mQSz6RGz9x"]
-  }else if (goal == "Running"){
-    videos = ["E_qbMtUp8ck?si=WXA0nfpU2UIooSTe", "dKUZ_yqZiEc?si=L7NpFIRPp11zZA2X", "-Ot-dP1xST4?si=Kg_vkQbSJ1aaO61h", "6KBBPOlyMWw?si=SkSLHsTVAk0J4aYu", "XWXRfxhi4U8?si=8jXYkOELpOvvleg6", "RC1lrx1IhLw?si=po4tmz9dXWnNpnLU"];
-  }
-  var numOfVideos = 4;
-  const randomNumArr = getRandomNumArr(videos.length-1);
-  for (let i = 0; i < numOfVideos; i++) {
-    var iframe = document.createElement("iframe");
-    var iframeHTML = `<iframe id='videos' className='move' title='YouTube video player' src= "https://www.youtube.com/embed/${videos[randomNumArr[i]]}" height = '60%'' width = '49%'></iframe>`; 
-    document.getElementById("videos").innerHTML += iframeHTML;
+function showVideos(){
+  fetch('/api/user')
+  .then(response => response.json())
+  .then(data => {
+    goal = data.goal;
+    let videos
+    if(goal == "Weightlifting"){
+      videos = ["cuh5HsU7WQQ?si=5-VJZ4icUg3ZMJTt", "aui0gg_Zstc?si=YChOOZaFjqHcnCA2","h63JTsVdntw?si=2qCpKhG_FNrgrfPJ","__7abSf4D7Q?si=-3zpE3CR3r_WHFuM","1bP5AvsRex4?si=xxjypihQCL96Q584","qkzKd2Pk-5I?si=OaQRC9mQSz6RGz9x"]
+    }else if (goal == "Running"){
+      videos = ["E_qbMtUp8ck?si=WXA0nfpU2UIooSTe", "dKUZ_yqZiEc?si=L7NpFIRPp11zZA2X", "-Ot-dP1xST4?si=Kg_vkQbSJ1aaO61h", "6KBBPOlyMWw?si=SkSLHsTVAk0J4aYu", "XWXRfxhi4U8?si=8jXYkOELpOvvleg6", "RC1lrx1IhLw?si=po4tmz9dXWnNpnLU"];
+    }
+    var numOfVideos = 4;
+    const randomNumArr = getRandomNumArr(videos.length-1);
+    for (let i = 0; i < numOfVideos; i++) {
+      var iframe = document.createElement("iframe");
+      var iframeHTML = `<iframe id='videos' className='move' title='YouTube video player' src= "https://www.youtube.com/embed/${videos[randomNumArr[i]]}" height = '60%'' width = '49%'></iframe>`; 
+      document.getElementById("videos").innerHTML += iframeHTML;
+    }
+  });
 }
-});
 
 function getRunFormValues(){
     runDate = document.getElementById('runDate').value;
@@ -87,7 +88,6 @@ function updateGoal(){
 function swapFormToWeight(){
   document.getElementById("weightInputs").style.display = 'block';
   document.getElementById("runInputs").style.display = "none";
-  document.getElementById("liftInputs").style.display = "none";
   document.getElementById("placeholder").style.display = "none";
   document.getElementById("workoutPageButton").style.display = "block";
 }
@@ -95,18 +95,10 @@ function swapFormToWeight(){
 function swapFormToRun(){
   document.getElementById("runInputs").style.display = "block";
   document.getElementById("weightInputs").style.display = "none";
-  document.getElementById("liftInputs").style.display = "none";
   document.getElementById("placeholder").style.display = "none";
   document.getElementById("workoutPageButton").style.display = "none";
 }
 
-function swapFormToLift(){
-  document.getElementById("runInputs").style.display = "none";
-  document.getElementById("weightInputs").style.display = "none";
-  document.getElementById("liftInputs").style.display = "block";
-  document.getElementById("placeholder").style.display = "none";
-  document.getElementById("workoutPageButton").style.display = "none";
-}
 
 function resetForm(){
     document.getElementById("runInputs").style.display = "none";

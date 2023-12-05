@@ -232,3 +232,14 @@ padding-left: 20px;
 #details{
   font-size: 30px;
 }
+#routineDiv{
+  max-width:800px;
+}
+#liftingRoutines{
+  display:flex;
+  flex-direction: row;
+}
+.routineHeader{
+  font-size:20px;
+  font-family: 'javanese text', sans-serif; 
+}

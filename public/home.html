@@ -111,6 +111,8 @@
                     <button type="button" id="workoutPageButton" class="workoutPageButton" onclick="switchToWorkoutPage()">Input Your Full Workout Here</button>
                 </section>
                 <button type="button" class="submit" onclick="resetForm()">Reset Form</button>
+                <button type="button" class="submit" onclick="goToLogin()">Logout</button>
+
         </div>
     
         <div class="progress">
@@ -131,6 +133,9 @@
 
     <script>
         window.onload = showVideos();
+        function goToLogin(){
+            window.location.href = "login.html";
+        }
     </script>
 
 </body>

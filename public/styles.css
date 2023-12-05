@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
   }
+  
 
 html {
     scroll-behavior: smooth;
@@ -11,8 +12,8 @@ html {
 body {
     background-color: #EDC7B7;
     position: relative;
-    font-family: 'Arial', sans-serif; 
-  font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
 }
 
 #HiFit, #details{
@@ -111,7 +112,7 @@ body {
 
 #health {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 button{
@@ -119,7 +120,7 @@ button{
     padding: 5px 5px;
     border-radius: 8px;
     border-color:#BAB2B5 ;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Playfair Display', serif;
     transition: background-color 0.3s;
 }
 
@@ -151,6 +152,8 @@ button{
 #progressBarNumber{
     text-align: center;
     font-size: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 button{
     background-color:#EEE2DC;
@@ -165,53 +168,53 @@ button:hover {
 
   input[type="password"] {
   
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Playfair Display', serif;    
     font-weight: bold;
   }
   input[type="text"] {
 
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
   }
   
   input[type="target"] {
 
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
   }
   input[type="date"] {
  
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
   }
   
   select#workoutFrequency {
   
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
   }
   select#workoutFrequencyGoal {
 
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
   }
   select#setGoal {
 
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
   }
   select#setRoutine {
   
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
   }
   h3 {
     font-size: 2em;
-    font-family: 'lucida console', sans-serif;
+    font-family: 'Playfair Display', serif;
   }
   h2 {
     font-size: 2em;
-    font-family: 'lucida console', sans-serif;
+    font-family: 'Playfair Display', serif;
     
   }
   p {

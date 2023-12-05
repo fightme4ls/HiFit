@@ -8,6 +8,7 @@ import { create } from 'domain';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
+var authenticated = false;
 let userData = {};
 
 app.use(express.static(path.join(__dirname, 'public'), { 'extensions': ['html', 'js'] }));
@@ -16,20 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', async (req, res) => {
   res.sendFile(path.join(__dirname, 'public/login.html'));
 });
-
-app.get('/home', (req, res) => {
-  const filePath = path.join(__dirname, 'public/home.html');
-  res.sendFile(filePath);
-});
-
-app.get('/create', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/create.html'));
-});
-
-app.get('/workout', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/workout.html'));
-});
-
 
 app.post('/home.html', async (req, res) =>{
   const weightDate = req.body.weightDate;
@@ -66,6 +53,7 @@ app.post('/login.html', async (req, res) => {
   };
 
   if(valid){
+    authenticated = true; 
     res.redirect('/home.html');
   } else {
     res.send(`

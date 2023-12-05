@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID, createExerciseForm, getGoal} from './database.js';
+import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID, createExerciseForm, getGoal, createWeightForm} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { create } from 'domain';
@@ -10,6 +10,8 @@ const __dirname = dirname(__filename);
 const app = express();
 var authenticated = false;
 let userData = {};
+let weightData = {};
+
 
 app.use(express.static(path.join(__dirname, 'public'), { 'extensions': ['html', 'js'] }));
 app.use(express.urlencoded({ extended: true }));
@@ -31,9 +33,18 @@ app.post('/home.html', async (req, res) =>{
   const place = req.body.place; 
   const runNotes = req.body.runNotes;
   const userID = await getUserID(userData.name);
-
-  await createRunningForm(userID, runDate, runLength, distance, time, place, runNotes);
-  res.redirect('/home.html');
+  const targetWeight = await getTargetWeight(userData.name);
+  if(weightDate == "" && weightLength == "" && currentWeight == "" && weightNotes == ""){
+    await createRunningForm(userID, runDate, runLength, distance, time, place, runNotes);
+    res.redirect('/home.html');
+  } else {
+    await createWeightForm(userID, weightLength, weightDate, currentWeight, weightNotes);
+    weightData = {
+      weight: currentWeight,
+      targetWeight: targetWeight,
+    };
+    res.redirect('/home.html');
+  }
 });
 
 app.post('/login.html', async (req, res) => {
@@ -52,6 +63,11 @@ app.post('/login.html', async (req, res) => {
     // Add more data as needed
   };
 
+  weightData = {
+    weight: currentWeight,
+    targetWeight: target_weight,
+  };
+
   if(valid){
     authenticated = true; 
     res.redirect('/home.html');
@@ -63,9 +79,12 @@ app.post('/login.html', async (req, res) => {
   }
 });
 
-
 app.get('/api/user', (req, res) => {
   res.json(userData);
+});
+
+app.get('/api/weight', (req, res) => {
+  res.json(weightData);
 });
 
 app.post('/workout.html', async(req, res) => {

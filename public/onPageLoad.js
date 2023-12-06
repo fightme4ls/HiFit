@@ -34,8 +34,8 @@ fetch('/api/user')
 .then(response => response.json())
 .then(data => {
   document.getElementById('userInfo').innerHTML = `
-  <h4>Welcome to HiFit ${data.username} </h4>
-  <h4>We hope you are able to reach your goal of ${data.targetWeight} lbs </h4>
+  <h4>Welcome to HiFit, ${data.username} !</h4>
+  <p>We're really excited to help you on your fitness journey. 🏋️</p>
 `;
 })
 .catch(error => console.error('Error:', error));

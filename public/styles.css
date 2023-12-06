@@ -144,10 +144,6 @@ button{
     display: none;
 }
 
-#liftInputs{
-    display: none;
-}
-
 #placeholder{
     opacity: 0;
 }

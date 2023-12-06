@@ -32,3 +32,15 @@ fetch('/api/weight')
   }
 })
 .catch(error => console.error('Error:', error));
+
+function checkLogin(){
+  fetch('/api/user')
+  .then(response => response.json())
+  .then(data => {
+    user = data.name;
+    console.log(user)
+    if(user == undefined){
+      switchToLoginPage();
+    } 
+  });
+}

@@ -76,39 +76,10 @@
                             </fieldset>
                         </form>
                     </div>
-
-
-                    <div id="placeholder">
-                        <form>
-                            <fieldset class = "forms">
-                                    <label for = "placeholder1">Placeholder1: </label>
-                                    <input type = "text" id="placeholder1" name = "placeholder1">
-                                    <br><br>
-                                    <label for = "placeholder2">How long did Placeholder2: </label>
-                                    <input type = "text" id="placeholder2" name = "placeholder2">
-                                    <br><br>
-                                    <label for = "placeholder3">Placeholder3: </label>
-                                    <input type = "text" id="placeholder3" name = "placeholder3">
-                                    <br><br>
-                                    <label for = "placeholder4">Placeholder4: </label>
-                                    <input type = "text" id="placeholder4" name = "placeholder4">
-                                    <br><br>
-                                    <label for = "placeholder5">Placeholder5: </label>
-                                    <input type = "text" id="placeholder5" name = "placeholder5">
-                                    <br><br>
-                                    <label for = "placeholder6">Placeholder6: </label>
-                                    <textarea id="placeholder6" name = "placeholder6" rows="3" cols="30"></textarea>
-                                    <br><br>
-                                    <button type="button" class="submit">Submit</button>
-                            </fieldset>
-                        </form>
-                    </div>
-
                     
                     <br>
                     <button type="button" id="workoutPageButton" class="workoutPageButton" onclick="switchToWorkoutPage()">Input Your Full Workout Here</button>
                 </section>
-                <button type="button" class="submit" onclick="resetForm()">Reset Form</button>
                 <button type="button" class="submit" onclick="goToLogin()">Logout</button>
 
         </div>
@@ -130,7 +101,8 @@
     <script src="script.js"></script>
 
     <script>
-        window.onload = showVideos();
+        window.onload = showVideosAndForm();
+        window.onload = checkLogin();
         function goToLogin(){
             window.location.href = "login.html";
         }

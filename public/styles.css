@@ -61,21 +61,21 @@ body {
   max-width: 600px;
 }
 body{
-  background-color: #7C93C3;
+  background-color: #FF6969;
 }
 .form, .progress, .check, .project-details{
-  background-color: #EEF5FF;
-  border-color: #374e80;
+  background-color: #FFF5E0;
+  border-color: #141E46;
 }
 #healthProgress {
-  background-color: #374e80; 
+  background-color: #141E46;
 }
 button {
-  background-color: #EEF5FF;
-  border-color:#81aed3 ;
+  background-color: #ffece0;
+  border-color:#9d968e;
 }
 button:hover {
-  background-color:#cfd9e6;
+  background-color:#f8b5b5;
 }
 
 .form, .progress, .check, .project-details{

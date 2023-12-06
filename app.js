@@ -163,6 +163,7 @@ app.post('/create.html', async(req, res) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
+  const confirmPassword = req.body.password2;
   const currentWeight = parseFloat(req.body.currentWeight);
   const targetWeight = parseFloat(req.body.targetWeight);
   const targetDate = req.body.targetDate;
@@ -171,6 +172,11 @@ app.post('/create.html', async(req, res) => {
     res.send(`
     <script>
       alert('You Did Not Input All Your Information, Try Again.');
+      window.location.href = '/create.html'; </script>`);
+  } else if(password != confirmPassword){
+    res.send(`
+    <script>
+      alert('Your password and confirm password do not match!');
       window.location.href = '/create.html'; </script>`);
   } else {
     await createUser(username,email,password,currentWeight,targetWeight,targetDate,goal);

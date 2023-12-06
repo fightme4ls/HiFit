@@ -71,13 +71,11 @@ function showRunningForms() {
           const runningDetailsElement = document.createElement('div');
           runningDetailsElement.classList.add('workoutDetails');
           const runningInfo = document.createElement('p');
-          runningInfo.textContent = `Length: ${run.length}, Distance: ${run.distance}, Time: ${run.time}, Location: ${run.location} lb, Notes: ${run.notes}`;
+          runningInfo.textContent = `Length: ${run.length}, Distance: ${run.distance}, Time: ${run.time}, Location: ${run.location}, Notes: ${run.notes}`;
           runningDetailsElement.appendChild(runningInfo);
           runningContainer.appendChild(runningDetailsElement);
         });
       }
-
-      
     })
     .catch(error => {
       console.error('Error fetching workout data:', error);

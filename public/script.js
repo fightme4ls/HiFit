@@ -76,8 +76,6 @@ function showRunningForms() {
           runningContainer.appendChild(runningDetailsElement);
         });
       }
-
-      
     })
     .catch(error => {
       console.error('Error fetching workout data:', error);

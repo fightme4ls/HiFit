@@ -56,6 +56,7 @@ app.post('/home.html', async (req, res) =>{
       window.location.href = '/home.html'; </script>`);
     } else {
       await createRunningForm(userID, runDate, runLength, distance, time, place, runNotes);
+      runningForm = await getAllRunningForms(userID);
       res.redirect('/home.html');
     }
   } else {
@@ -136,7 +137,6 @@ app.post('/workout.html', async(req, res) => {
   const date =  req.body.date;
   const userID = await getUserID(userData.name);
   var error = false;
-  exerciseForm = await getAllExerciseForms(userID);
   // Assuming that all arrays have the same length, you can iterate over one of them
   for (let i = 0; i < exercises.length; i++) {
     const exercise = exercises[i];
@@ -153,6 +153,7 @@ app.post('/workout.html', async(req, res) => {
       await createExerciseForm(userID, exercise, set, rep, weight, date);
     }
   }
+  exerciseForm = await getAllExerciseForms(userID);
   if(error == false){
     res.redirect('/home.html');
   }
@@ -176,7 +177,7 @@ app.post('/create.html', async(req, res) => {
   } else if(password != confirmPassword){
     res.send(`
     <script>
-      alert('Your password and confirm password do not match!');
+      alert('Your password and confirm password do not');
       window.location.href = '/create.html'; </script>`);
   } else {
     await createUser(username,email,password,currentWeight,targetWeight,targetDate,goal);

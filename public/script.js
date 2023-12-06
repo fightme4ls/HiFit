@@ -126,13 +126,13 @@ function moveBar() {
     var weightLeft = Math.abs(data.weight - data.targetWeight);
     if(data.weight > data.targetWeight){
         document.getElementById('progressBarNumber').innerHTML = `
-        <p>${data.weight} => ${data.targetWeight} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${weightLeft} lbs left to lose!</p>
+        <p>${data.weight}lbs => ${data.targetWeight}lbs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${weightLeft} lbs left to lose!</p>
         `;
     } else if(data.weight == parseInt(data.targetWeight)){
       document.getElementById('progressBarNumber').innerHTML = `You have reached your goal! Congrats &#x1F604;`;
     } else {
         document.getElementById('progressBarNumber').innerHTML = `
-        <p>${data.weight} => ${data.targetWeight} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ${weightLeft} lbs left to gain!</p>
+        <p>${data.weight}lbs => ${data.targetWeight}lbs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ${weightLeft} lbs left to gain!</p>
         `;
     }  
 

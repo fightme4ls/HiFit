@@ -154,7 +154,7 @@ button{
     opacity: 0;
 }
 
-#backButton, #backButton2{
+#backButton, #backButton2, #logout{
     margin-top: 10px;
     margin-left: 20px;
 }

@@ -4,9 +4,6 @@ fetch('/api/weight')
 .then(response => response.json())
 .then(data => {
   // Update the HTML content with the received data
-  document.getElementById('usernameElement').innerHTML = `
-    <p>Target Weight: ${data.targetWeight}</p>
-  `;
   var weightLeft = Math.abs(data.weight - data.targetWeight);
   if(data.weight > data.targetWeight){
       document.getElementById('progressBarNumber').innerHTML = `
@@ -30,6 +27,16 @@ fetch('/api/weight')
   } else {
       barWidth.style.width = ((currentWeight/targetWeight)*99 + "%");
   }
+})
+.catch(error => console.error('Error:', error));
+
+fetch('/api/user')
+.then(response => response.json())
+.then(data => {
+  document.getElementById('userInfo').innerHTML = `
+  <h4>Welcome to HiFit ${data.username} </h4>
+  <h4>We hope you are able to reach your goal of ${data.targetWeight} lbs </h4>
+`;
 })
 .catch(error => console.error('Error:', error));
 

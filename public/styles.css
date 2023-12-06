@@ -54,7 +54,8 @@ body {
     margin:auto;
     justify-content: center;
     align-content: center;
-    max-width:1300px;
+    max-width:1500px;
+    min-height: 700px;
 }
 
 #loginForm{
@@ -73,6 +74,12 @@ body {
     border-style: solid;
     border-width: 5px;
     
+}
+
+.buttonDiv{
+  display: flex;
+  flex-direction: row;
+  margin:auto;
 }
 
 .workoutPage{

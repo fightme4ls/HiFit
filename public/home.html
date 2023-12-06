@@ -16,9 +16,7 @@
                 <img src="logoImg.png" alt="HiFit Logo" id="logo">
 
             </div>
-                <p id="health"> <strong>Health Metrics: </strong></p>
-                <p id="weightGoal">Your Weight Goal: </p>
-                <p id="usernameElement" name="userHead">Alex Test</p>
+                <p id="userInfo">User Information</p>
                 <br>
                 <div id="buttonBox">
                     <div id="pastButton">
@@ -51,7 +49,10 @@
                             <label for = "weightNotes">Notes: </label>
                             <textarea id="weightNotes" name = "weightNotes" rows="3" cols="30"></textarea>
                             <br><br>
-                            <button type="submit" class="submit" onclick="getWeightFormValues()">Submit</button>
+                            <div class = "buttonDiv">
+                                <button type="submit" class="submit" onclick="getWeightFormValues()">Submit</button>
+                                <button type="button" id="workoutPageButton" class="workoutPageButton" onclick="switchToWorkoutPage()">Input Workouts</button>
+                            </div>
                         </fieldset>
                     </form>
                     </div>
@@ -77,13 +78,13 @@
                                 <label for = "runNotes">Notes: </label>
                                 <textarea id="runNotes" name = "runNotes" rows="3" cols="30"></textarea>
                                 <br><br>
-                                <button type="submit" class="submit">Submit</button>
+                    
+                                    <button type="submit" class="submit" onclick="getWeightFormValues()">Submit</button>
+                               
                             </fieldset>
                         </form>
                     </div>
-                    
                     <br>
-                    <button type="button" id="workoutPageButton" class="workoutPageButton" onclick="switchToWorkoutPage()">Input Workouts</button>
                 </div>
                 </section>
 

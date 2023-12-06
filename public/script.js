@@ -10,12 +10,6 @@ function showWorkoutForms() {
       data.sort((a, b) => new Date(b.exercise_date) - new Date(a.exercise_date));
       data.forEach(workout => {
         //Access elements of each workout object
-        console.log('Workout ID:', workout.exerciseLogID);
-        console.log('Workout Name:', workout.exerciseName);
-        console.log('Workout Date:', workout.exercise_date);
-        console.log('Workout Reps:', workout.reps);
-        console.log('Workout Sets:', workout.userID);
-        console.log('Workout Weight:', workout.weight);
         const workoutDate = new Date(workout.exercise_date).toLocaleDateString();
         if (!groupedExercises[workoutDate]) {
           groupedExercises[workoutDate] = [];

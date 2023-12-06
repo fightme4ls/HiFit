@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, 
+import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUsername,
   getUserID, createExerciseForm, getGoal, createWeightForm, getAllExerciseForms, getAllRunningForms} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -30,6 +30,9 @@ app.get('/home.html', async (req, res) => {
 app.get('/workout.html', async (req, res) => {
   console.log(req);
   res.sendFile(path.join(__dirname, 'public/workout.html'));
+});
+app.get('/past_workouts.html', async (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/past_workouts.html'));
 });
 
 app.post('/home.html', async (req, res) =>{
@@ -73,19 +76,21 @@ app.post('/home.html', async (req, res) =>{
 });
 
 app.post('/login.html', async (req, res) => {
-  const username = req.body.loginUsername;
+  const name = req.body.loginUsername;
   const password = req.body.loginPassword;
-  const valid = await validateUser(username, password);
-  const currentWeight = await getUserWeight(username);
-  const target_weight = await getTargetWeight(username);
-  const goal = await getGoal(username);
+  const valid = await validateUser(name, password);
+  const currentWeight = await getUserWeight(name);
+  const target_weight = await getTargetWeight(name);
+  const goal = await getGoal(name);
   const userID = await getUserID(req.body.loginUsername);
+  const userName = await getUsername(name);
   console.log(userID);
   runningForm = await getAllRunningForms(userID);
   exerciseForm = await getAllExerciseForms(userID);
   console.log(runningForm);
   userData = {
-    name: username,
+    name: name,
+    username: userName,
     password: password,
     weight: currentWeight,
     targetWeight: target_weight,

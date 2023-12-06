@@ -36,6 +36,14 @@ export async function getUserID(email) {
         return storedID;
     } 
 }
+export async function getUsername(email) {
+    const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
+    if(rows.length > 0) {
+        const user = rows[0];
+        const storedName = user.username; 
+        return storedName;
+    } 
+}
 
 export async function getGoal(email){
     const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);

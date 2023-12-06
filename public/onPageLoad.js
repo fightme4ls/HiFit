@@ -37,9 +37,9 @@ function checkLogin(){
   fetch('/api/user')
   .then(response => response.json())
   .then(data => {
-    user = data.name;
-    console.log(user)
-    if(user == undefined){
+    weight = data.weight;
+    console.log(weight)
+    if(weight == undefined || weight == false){
       switchToLoginPage();
     } 
   });

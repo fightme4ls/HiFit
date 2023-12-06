@@ -72,7 +72,7 @@
                                 <label for = "runNotes">Notes: </label>
                                 <textarea id="runNotes" name = "runNotes" rows="3" cols="30"></textarea>
                                 <br><br>
-                                <button type="submit" class="submit" onclick="getRunFormValues()">Submit</button>
+                                <button type="submit" class="submit">Submit</button>
                             </fieldset>
                         </form>
                     </div>
@@ -101,8 +101,8 @@
     <script src="script.js"></script>
 
     <script>
-        window.onload = showVideosAndForm();
         window.onload = checkLogin();
+        window.onload = showVideosAndForm();
         function goToLogin(){
             window.location.href = "login.html";
         }

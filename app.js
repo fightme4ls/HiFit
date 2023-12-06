@@ -8,18 +8,10 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
-var authenticated = false;
 let userData = {};
 let weightData = {};
 let exerciseForm = {};
-
-const isAuthenticated = (req, res, next) => {
-  if (authenticated) {
-    next();
-  } else {
-    res.redirect('/login.html');
-  }
-};
+let runningForm = {};
 
 
 app.use(express.static(path.join(__dirname, 'public'), { 'extensions': ['html', 'js'] }));
@@ -29,14 +21,13 @@ app.get('/', async (req, res) => {
   res.sendFile(path.join(__dirname, 'public/login.html'));
 });
 
-app.get('/create.html', isAuthenticated, async (req, res) => {
+app.get('/create.html', async (req, res) => {
   res.sendFile(path.join(__dirname, 'public/create.html'));
 });
-app.get('/home.html', isAuthenticated, async (req, res) => {
-  console.log(req);
+app.get('/home.html', async (req, res) => {
   res.sendFile(path.join(__dirname, 'public/home.html'));
 });
-app.get('/workout.html', isAuthenticated, async (req, res) => {
+app.get('/workout.html', async (req, res) => {
   console.log(req);
   res.sendFile(path.join(__dirname, 'public/workout.html'));
 });
@@ -54,22 +45,30 @@ app.post('/home.html', async (req, res) =>{
   const runNotes = req.body.runNotes;
   const userID = await getUserID(userData.name);
   const targetWeight = await getTargetWeight(userData.name);
-  if(weightDate == "" && runDate == ""){
-    res.send(`
-    <script>
-      alert('Did not fill out all the info in the form');
+  if(weightDate == undefined && weightLength == undefined && currentWeight == undefined && weightNotes == undefined){
+    if(runDate == "" || runLength == "" || distance == "" || time == "" || place == ""){
+      res.send(`
+      <script>
+      alert('Did not input all the information.');
       window.location.href = '/home.html'; </script>`);
-  }
-  else if(weightDate == "" && weightLength == "" && currentWeight == "" && weightNotes == ""){
-    await createRunningForm(userID, runDate, runLength, distance, time, place, runNotes);
-    res.redirect('/home.html');
+    } else {
+      await createRunningForm(userID, runDate, runLength, distance, time, place, runNotes);
+      res.redirect('/home.html');
+    }
   } else {
-    await createWeightForm(userID, weightLength, weightDate, currentWeight, weightNotes);
-    weightData = {
-      weight: currentWeight,
-      targetWeight: targetWeight,
-    };
-    res.redirect('/home.html');
+    if(weightDate == "" || weightLength == "" || currentWeight == "" || weightNotes == ""){
+      res.send(`
+      <script>
+      alert('Did not input all the information.');
+      window.location.href = '/home.html'; </script>`);
+    } else {
+      await createWeightForm(userID, weightLength, weightDate, currentWeight, weightNotes);
+      weightData = {
+        weight: currentWeight,
+        targetWeight: targetWeight,
+      };
+      res.redirect('/home.html');
+    }
   }
 });
 
@@ -97,7 +96,6 @@ app.post('/login.html', async (req, res) => {
     targetWeight: target_weight,
   };
   if(valid){
-    authenticated = true; 
     res.redirect('/home.html');
   } else {
     res.send(`

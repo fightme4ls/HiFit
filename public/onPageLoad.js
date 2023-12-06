@@ -37,10 +37,10 @@ function checkLogin(){
   fetch('/api/user')
   .then(response => response.json())
   .then(data => {
-    weight = data.weight;
-    console.log(weight)
-    if(weight == undefined || weight == false){
+    user = data.name;
+    if(user == undefined){
       switchToLoginPage();
+      window.alert("You attempted to traverse through the URL while not logged in.");
     } 
   });
 }

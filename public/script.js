@@ -195,7 +195,7 @@ function swapFormToWeight(){
 function swapFormToRun(){
   document.getElementById("runInputs").style.display = "block";
   document.getElementById("weightInputs").style.display = "none";
-  document.getElementById("workoutPageButton").style.display = "none";
+  document.getElementById("workoutPageButton").style.display = "blocks";
 }
 
 

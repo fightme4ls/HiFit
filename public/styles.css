@@ -145,8 +145,7 @@ button{
 
 #weightInputs,
 #runInputs,
-#liftInputs,
-#workoutPageButton
+#liftInputs
 {
     display: none;
 }
@@ -227,4 +226,8 @@ padding-left: 20px;
   font-size: 35px;
   text-decoration: underline;
   margin-bottom: 10px;
+}
+
+#logout{
+  max-width: 62px;
 }

@@ -20,6 +20,9 @@
                 <p id="usernameElement" name="userHead">Alex Test</p>
                 <br>
                 <div id="buttonBox">
+                    <div id="pastButton">
+                        <button type="button" id="pastButton" class="pastButton" onclick="switchToPast()">View Past Workouts</button>
+                    </div>
                     <div id="weightFormButton">
                         <button type="button" class="weightForm" onclick="swapFormToWeight()">Weight Form</button>
                     </div>
@@ -31,7 +34,7 @@
                 </div>
 
                 <section class = "form">
-
+                    
                     <div id="weightInputs">
                     <form action="home.html" method="POST">
                         <fieldset class = "forms">
@@ -79,7 +82,7 @@
                     </div>
                     
                     <br>
-                    <button type="button" id="workoutPageButton" class="workoutPageButton" onclick="switchToWorkoutPage()">Input and View Workouts</button>
+                    <button type="button" id="workoutPageButton" class="workoutPageButton" onclick="switchToWorkoutPage()">Input Workouts</button>
                 </div>
                 </section>
 
@@ -106,6 +109,9 @@
         window.onload = showVideosAndForm();
         function goToLogin(){
             window.location.href = "login.html";
+        }
+        function switchToPast(){
+            window.location.href = "past.html";
         }
     </script>
 

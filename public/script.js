@@ -71,7 +71,7 @@ function showRunningForms() {
           const runningDetailsElement = document.createElement('div');
           runningDetailsElement.classList.add('workoutDetails');
           const runningInfo = document.createElement('p');
-          runningInfo.textContent = `Length: ${run.length}, Distance: ${run.distance}, Time: ${run.time}, Location: ${run.location} lb, Notes: ${run.notes}`;
+          runningInfo.textContent = `Length: ${run.length}, Distance: ${run.distance}, Time: ${run.time}, Location: ${run.location}, Notes: ${run.notes}`;
           runningDetailsElement.appendChild(runningInfo);
           runningContainer.appendChild(runningDetailsElement);
         });
@@ -197,7 +197,7 @@ function swapFormToWeight(){
 function swapFormToRun(){
   document.getElementById("runInputs").style.display = "block";
   document.getElementById("weightInputs").style.display = "none";
-  document.getElementById("workoutPageButton").style.display = "blocks";
+  document.getElementById("workoutPageButton").style.display = "blocksand ";
 }
 
 

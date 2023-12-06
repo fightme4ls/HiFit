@@ -217,7 +217,7 @@ padding-left: 20px;
   font-family: 'javanese text', sans-serif; 
 }
 
-#workoutContainer {
+#workoutContainer, #runningContainer {
   max-width: 800px;
   padding: 20px;
 }

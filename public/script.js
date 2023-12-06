@@ -1,25 +1,48 @@
 var goal, runDate, weightDate, weightLength, runLength, currentWeight, distance, time, place, runNotes, weightNotes, username = "";
 
-function showWorkoutForms(){
+function showWorkoutForms() {
   fetch('/api/exercise')
-  .then(response => response.json())
-  .then(data => {
+    .then(response => response.json())
+    .then(data => {
       // Assuming data is an array of objects
       console.log(data);
+      const groupedExercises = {};
+      data.sort((a, b) => new Date(b.exercise_date) - new Date(a.exercise_date));
       data.forEach(workout => {
-        // Access elements of each workout object
+        //Access elements of each workout object
         console.log('Workout ID:', workout.exerciseLogID);
         console.log('Workout Name:', workout.exerciseName);
         console.log('Workout Date:', workout.exercise_date);
         console.log('Workout Reps:', workout.reps);
         console.log('Workout Sets:', workout.userID);
         console.log('Workout Weight:', workout.weight);
+        const workoutDate = new Date(workout.exercise_date).toLocaleDateString();
+        if (!groupedExercises[workoutDate]) {
+          groupedExercises[workoutDate] = [];
+        }
+        groupedExercises[workoutDate].push(workout);
       });
+      const workoutContainer = document.getElementById('workoutContainer');
+      for (const date in groupedExercises) {
+        const workoutDateElement = document.createElement('u');
+        workoutDateElement.textContent = `${date}`;
+        workoutDateElement.style.fontSize = '25px';
+        workoutContainer.appendChild(workoutDateElement);
+        groupedExercises[date].forEach(workout => {
+          const workoutDetailsElement = document.createElement('div');
+          workoutDetailsElement.classList.add('workoutDetails');
+          const workoutInfo = document.createElement('p');
+          workoutInfo.textContent = `Workout Name: ${workout.exerciseName}, Sets: ${workout.userID}, Reps: ${workout.reps}, Weight: ${workout.weight} lb`;
+          workoutDetailsElement.appendChild(workoutInfo);
+          workoutContainer.appendChild(workoutDetailsElement);
+        });
+      }
     })
     .catch(error => {
       console.error('Error fetching workout data:', error);
-  });  
+    });
 }
+
 function showVideos(){
   fetch('/api/user')
   .then(response => response.json())
@@ -222,4 +245,8 @@ const getRandomNumArr = (max) => {
       }
       console.log(numArr);
   return numArr;
+}
+
+function display(value){
+  console.log(value);
 }

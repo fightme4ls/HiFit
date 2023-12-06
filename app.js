@@ -1,7 +1,7 @@
 import express from 'express'
 import path from 'path'
 import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, 
-  getUserID, createExerciseForm, getGoal, createWeightForm, getAllExerciseForms} from './database.js';
+  getUserID, createExerciseForm, getGoal, createWeightForm, getAllExerciseForms, getAllRunningForms} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -81,7 +81,9 @@ app.post('/login.html', async (req, res) => {
   const goal = await getGoal(username);
   const userID = await getUserID(req.body.loginUsername);
   console.log(userID);
+  runningForm = await getAllRunningForms(userID);
   exerciseForm = await getAllExerciseForms(userID);
+  console.log(runningForm);
   userData = {
     name: username,
     password: password,
@@ -117,6 +119,10 @@ app.get('/api/exercise', (req, res) => {
   res.json(exerciseForm);
 });
 
+app.get('/api/running', (req, res) => {
+  res.json(runningForm);
+});
+
 app.post('/workout.html', async(req, res) => {
   const exercises = Array.isArray(req.body.exercise) ? req.body.exercise : [req.body.exercise];
   const sets = Array.isArray(req.body.sets) ? req.body.sets : [req.body.sets];
@@ -126,7 +132,6 @@ app.post('/workout.html', async(req, res) => {
   const userID = await getUserID(userData.name);
   var error = false;
   exerciseForm = await getAllExerciseForms(userID);
-  console.log(exerciseForm);
   // Assuming that all arrays have the same length, you can iterate over one of them
   for (let i = 0; i < exercises.length; i++) {
     const exercise = exercises[i];

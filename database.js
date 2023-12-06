@@ -18,6 +18,11 @@ export async function getAllExerciseForms(userID) {
     return rows;
 }
 
+export async function getAllRunningForms(userID) {
+    const [rows] = await pool.query("SELECT * FROM hifit.running_log WHERE userID = ?", [userID]);
+    return rows;
+}
+
 export async function getUser(email) {
     const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);
     return rows;

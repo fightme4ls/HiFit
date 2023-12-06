@@ -37,6 +37,47 @@ function showWorkoutForms() {
           workoutContainer.appendChild(workoutDetailsElement);
         });
       }
+
+
+    })
+    .catch(error => {
+      console.error('Error fetching workout data:', error);
+    });
+}
+
+
+function showRunningForms() {
+  fetch('/api/running')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      const groupedExercises = {};
+      data.sort((a, b) => new Date(b.exercise_date) - new Date(a.exercise_date));
+      data.forEach(running => {
+        //Access elements of each workout object
+        const runningDate = new Date(running.exercise_date).toLocaleDateString();
+        if (!groupedExercises[runningDate]) {
+          groupedExercises[runningDate] = [];
+        }
+        groupedExercises[runningDate].push(running);
+      });
+      const runningContainer = document.getElementById('runningContainer');
+      for (const date in groupedExercises) {
+        const exerciseDateElement = document.createElement('u');
+        exerciseDateElement.textContent = `${date}`;
+        exerciseDateElement.style.fontSize = '25px';
+        runningContainer.appendChild(exerciseDateElement);
+        groupedExercises[date].forEach(run => {
+          const runningDetailsElement = document.createElement('div');
+          runningDetailsElement.classList.add('workoutDetails');
+          const runningInfo = document.createElement('p');
+          runningInfo.textContent = `Length: ${run.length}, Distance: ${run.distance}, Time: ${run.time}, Location: ${run.location} lb, Notes: ${run.notes}`;
+          runningDetailsElement.appendChild(runningInfo);
+          runningContainer.appendChild(runningDetailsElement);
+        });
+      }
+
+      
     })
     .catch(error => {
       console.error('Error fetching workout data:', error);

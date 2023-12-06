@@ -10,78 +10,82 @@
  
 <body>
     <button type="button" id="backButton" class="backButton" onclick="bypass()">Back</button>
-    <section class="workoutForm">
-        <div class="check">
-            <form action="workout.html" method="POST">
-                <fieldset class = "forms">
-                    <table id="workoutTable" name = "workoutTable">
-                        <tr>
-                            <th>Exercise</th>
-                            <th>Sets</th>
-                            <th>Reps</th>
-                            <th>Weight</th>
-                        </tr>
-                    </table>
-                    <br>
-                    <button type="button" onclick="addWorkout()">Add workout</button>
-                    <button type="button" onclick="removeWorkout()">Remove workout</button>
-                    <br><br>
-                    <label for = "date">Date: </label>
-                    <input type = "date" id="date" name = "date">
-                    <br><br>
-                    <button type="submit" class="submit" onclick="getInputs()">Submit</button>
-                </fieldset>
-            </form>
-        </div>
-    </section>
-
-    <section>
-        <div id="workoutContainer" class="check">
-            <h1 id="headWorkout">Past Workouts</h1>
-        </div>
-    </section>
-
-    <section class="routineDisplay">
-        <div class="form" id="routineDiv">
-            <h1 id="recommendedRoutines">Recommended Routines</h1>
-            <div id="liftingRoutines">
-                <div class="form" id="upperBodyRoutine">
-                    <h2 class="routineHeader">Upper Body Routine</h2>
-                    <ul>
-                        <li>Bench Press</li>
-                        <li>Barbell Rows</li>
-                        <li>Pull-ups</li>
-                        <li>Overhead Press</li>
-                        <li>Skull Crushers</li>
-                        <li>Dumbbell Curls</li>
-                    </ul>
-                </div>
-                <div class="form" id="lowerBodyRoutine">
-                    <h2 class="routineHeader">Lower Body Routine</h2>
-                    <ul>
-                        <li>Squats</li>
-                        <li>Calf Raises</li>
-                        <li>Lunges</li>
-                        <li>Leg Press</li>
-                        <li>Hack Squat</li>
-                        <li>Leg Curls</li>
-                    </ul>
-                </div>
-                <div class="form" id="fullBodyRoutine">
-                    <h3 class="routineHeader">Full Body Routine</h3>
-                    <ul>
-                        <li>Bench Press</li>
-                        <li>Deadlift</li>
-                        <li>Lunges</li>
-                        <li>Pull-ups</li>
-                        <li>Squat</li>
-                        <li>Romanian Deadlift</li>
-                    </ul>
+    <div class = workoutPage>
+        <div>
+        <section class="workoutForm">
+            <div class="check">
+                <form action="workout.html" method="POST">
+                    <fieldset class = "forms">
+                        <table id="workoutTable" name = "workoutTable">
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets</th>
+                                <th>Reps</th>
+                                <th>Weight</th>
+                            </tr>
+                        </table>
+                        <br>
+                        <button type="button" onclick="addWorkout()">Add workout</button>
+                        <button type="button" onclick="removeWorkout()">Remove workout</button>
+                        <br><br>
+                        <label for = "date">Date: </label>
+                        <input type = "date" id="date" name = "date">
+                        <br><br>
+                        <button type="submit" class="submit" onclick="getInputs()">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    
+        <section class="routineDisplay">
+            <div class="form" id="routineDiv">
+                <h1 id="recommendedRoutines">Recommended Routines</h1>
+                <div id="liftingRoutines">
+                    <div class="form" id="upperBodyRoutine">
+                        <h2 class="routineHeader">Upper Body Routine</h2>
+                        <ul>
+                            <li>Bench Press</li>
+                            <li>Barbell Rows</li>
+                            <li>Pull-ups</li>
+                            <li>Overhead Press</li>
+                            <li>Skull Crushers</li>
+                            <li>Dumbbell Curls</li>
+                        </ul>
+                    </div>
+                    <div class="form" id="lowerBodyRoutine">
+                        <h2 class="routineHeader">Lower Body Routine</h2>
+                        <ul>
+                            <li>Squats</li>
+                            <li>Calf Raises</li>
+                            <li>Lunges</li>
+                            <li>Leg Press</li>
+                            <li>Hack Squat</li>
+                            <li>Leg Curls</li>
+                        </ul>
+                    </div>
+                    <div class="form" id="fullBodyRoutine">
+                        <h3 class="routineHeader">Full Body Routine</h3>
+                        <ul>
+                            <li>Bench Press</li>
+                            <li>Deadlift</li>
+                            <li>Lunges</li>
+                            <li>Pull-ups</li>
+                            <li>Squat</li>
+                            <li>Romanian Deadlift</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </section>
         </div>
-    </section>
-
+        <div>
+            <section>
+                <div id="workoutContainer" class="check">
+                    <h1 id="headWorkout">Past Workouts</h1>
+                </div>
+            </section>
+        </div>    
+    </div>
 
 
 <script src="script.js"></script>

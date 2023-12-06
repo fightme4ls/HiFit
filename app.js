@@ -1,9 +1,9 @@
 import express from 'express'
 import path from 'path'
-import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, getUserID, createExerciseForm, getGoal, createWeightForm, getAllExerciseForms} from './database.js';
+import { createUser, validateUser, getUserWeight, getTargetWeight, createRunningForm, 
+  getUserID, createExerciseForm, getGoal, createWeightForm, getAllExerciseForms} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { create } from 'domain';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -13,6 +13,14 @@ let userData = {};
 let weightData = {};
 let exerciseForm = {};
 
+const isAuthenticated = (req, res, next) => {
+  if (authenticated) {
+    next();
+  } else {
+    res.redirect('/login.html');
+  }
+};
+
 
 app.use(express.static(path.join(__dirname, 'public'), { 'extensions': ['html', 'js'] }));
 app.use(express.urlencoded({ extended: true }));
@@ -21,12 +29,23 @@ app.get('/', async (req, res) => {
   res.sendFile(path.join(__dirname, 'public/login.html'));
 });
 
+app.get('/create.html', isAuthenticated, async (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/create.html'));
+});
+app.get('/home.html', isAuthenticated, async (req, res) => {
+  console.log(req);
+  res.sendFile(path.join(__dirname, 'public/home.html'));
+});
+app.get('/workout.html', isAuthenticated, async (req, res) => {
+  console.log(req);
+  res.sendFile(path.join(__dirname, 'public/workout.html'));
+});
+
 app.post('/home.html', async (req, res) =>{
   const weightDate = req.body.weightDate;
   const weightLength = req.body.weightLength;
   const currentWeight = req.body.currentWeight;
   const weightNotes = req.body.weightNotes;
-
   const runDate = req.body.runDate;
   const runLength = req.body.runLength;
   const distance = req.body.distance; 
@@ -35,7 +54,13 @@ app.post('/home.html', async (req, res) =>{
   const runNotes = req.body.runNotes;
   const userID = await getUserID(userData.name);
   const targetWeight = await getTargetWeight(userData.name);
-  if(weightDate == "" && weightLength == "" && currentWeight == "" && weightNotes == ""){
+  if(weightDate == "" && runDate == ""){
+    res.send(`
+    <script>
+      alert('Did not fill out all the info in the form');
+      window.location.href = '/home.html'; </script>`);
+  }
+  else if(weightDate == "" && weightLength == "" && currentWeight == "" && weightNotes == ""){
     await createRunningForm(userID, runDate, runLength, distance, time, place, runNotes);
     res.redirect('/home.html');
   } else {
@@ -101,7 +126,9 @@ app.post('/workout.html', async(req, res) => {
   const weights = Array.isArray(req.body.weight) ? req.body.weight : [req.body.weight];
   const date =  req.body.date;
   const userID = await getUserID(userData.name);
+  var error = false;
   exerciseForm = await getAllExerciseForms(userID);
+  console.log(exerciseForm);
   // Assuming that all arrays have the same length, you can iterate over one of them
   for (let i = 0; i < exercises.length; i++) {
     const exercise = exercises[i];
@@ -109,6 +136,7 @@ app.post('/workout.html', async(req, res) => {
     const rep = reps[i];
     const weight = weights[i];
     if(exercise == "" || set == "" || rep == "" || weight == "" || date == ""){
+      error = true;
       res.send(`
       <script>
         alert('You Did Not Input All Your Information, Try Again.');
@@ -117,7 +145,9 @@ app.post('/workout.html', async(req, res) => {
       await createExerciseForm(userID, exercise, set, rep, weight, date);
     }
   }
-  res.redirect('/home.html');
+  if(error == false){
+    res.redirect('/home.html');
+  }
 });
 
 

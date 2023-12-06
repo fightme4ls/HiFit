@@ -70,6 +70,13 @@ body {
     border-color: #1B4242;
 }
 
+.workoutPage{
+  display:flex;
+  flex-direction: row;
+  margin:auto;
+  justify-content: center;
+  align-content: center;
+}
 .forms{
     border: none;
     max-width:350px;

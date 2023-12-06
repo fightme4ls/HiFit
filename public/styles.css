@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    background-color: #5C8374;
+    
     position: relative;
     font-family: 'Playfair Display', serif;
     font-weight: bold;
@@ -60,14 +60,17 @@ body {
   display: flex;
   max-width: 600px;
 }
+body{
+  background-color: #62b3b5;
+}
 
 .form, .progress, .check, .project-details{
-    background-color: #9EC8B9;
+    background-color: #b0e3d6;
     margin: 5px 20px;
     padding:15px;
     border-style: solid;
     border-width: 5px;
-    border-color: #1B4242;
+    border-color: #265073;
 }
 
 .forms{
@@ -104,7 +107,7 @@ body {
 }
 #healthProgress {
     width: 100%;
-    background-color: rgb(70, 70, 70);
+    background-color: #265073;
     margin-bottom:20px;
 }
 
@@ -121,12 +124,15 @@ body {
 }
 
 button{
-    background-color:#EEE2DC;
-    padding: 5px 5px;
-    border-radius: 8px;
-    border-color:#BAB2B5 ;
+    background-color: #ECF4D6;
+    padding: 10px 10px;
+    border-radius: 15px;
+    border-color:#81aed3 ;
     font-family: 'Playfair Display', serif;
     transition: background-color 0.3s;
+}
+button:hover {
+  background-color:#d2e0aa;
 }
 
 #weightInputs{
@@ -160,68 +166,27 @@ button{
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
-button{
-    background-color:#EEE2DC;
-    padding: 10px 10px;
-    border-radius: 20px;
-    border-color:#BAB2B5 ;
-}
 
-button:hover {
-    background-color:#D4A18F;
-  }
 
-  input[type="password"] {
-  
+
+  input[type="password"],
+  input[type="text"], 
+  input[type="target"], 
+  input[type="date"], 
+  select#workoutFrequency, 
+  select#workoutFrequencyGoal, 
+  select#setGoal,
+  select#setRoutine { 
     font-family: 'Playfair Display', serif;    
     font-weight: bold;
   }
-  input[type="text"] {
+   
 
+  h3 h2 {
+    font-size: 2em;
     font-family: 'Playfair Display', serif;
-    font-weight: bold;
   }
-  
-  input[type="target"] {
-
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-  }
-  input[type="date"] {
  
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-  }
-  
-  select#workoutFrequency {
-  
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-  }
-  select#workoutFrequencyGoal {
-
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-  }
-  select#setGoal {
-
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-  }
-  select#setRoutine {
-  
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-  }
-  h3 {
-    font-size: 2em;
-    font-family: 'Playfair Display', serif;
-  }
-  h2 {
-    font-size: 2em;
-    font-family: 'Playfair Display', serif;
-    
-  }
   p {
     font-size: 1em; 
     margin-top: 5px; 

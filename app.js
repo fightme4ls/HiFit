@@ -142,7 +142,7 @@ app.post('/workout.html', async(req, res) => {
     const set = sets[i];
     const rep = reps[i];
     const weight = weights[i];
-    if(exercise == "" || set == "" || rep == "" || weight == "" || date == ""){
+    if(exercise == "" || set == "" || rep == "" || weight == "" || date == ''){
       error = true;
       res.send(`
       <script>

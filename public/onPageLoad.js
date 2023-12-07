@@ -5,7 +5,7 @@ fetch('/api/weight')
 .then(data => {
   // Update the HTML content with the received data
   var weightLeft = Math.abs(data.weight - data.targetWeight);
-  if(data.weight > data.targetWeight){
+  if(data.weight > parseInt(data.targetWeight)){
       document.getElementById('progressBarNumber').innerHTML = `
       <p>${data.weight}lbs => ${data.targetWeight}lbs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${weightLeft} lbs left to lose!</p>
       `;
@@ -20,9 +20,7 @@ fetch('/api/weight')
   var barWidth = document.getElementById("healthBar");
   var currentWeight = data.weight;
   var targetWeight = data.targetWeight;
-  //console.log(targetWeight)
-  //console.log (currentWeight);
-  if(currentWeight > targetWeight){
+  if(currentWeight > parseInt(data.targetWeight)){
       barWidth.style.width = ((targetWeight/currentWeight)*99 + "%");
   } else {
       barWidth.style.width = ((currentWeight/targetWeight)*99 + "%");

@@ -88,7 +88,6 @@ app.post('/login.html', async (req, res) => {
   console.log(userID);
   runningForm = await getAllRunningForms(userID);
   exerciseForm = await getAllExerciseForms(userID);
-  console.log(runningForm);
   userData = {
     name: name,
     username: userName,

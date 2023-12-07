@@ -177,7 +177,7 @@ app.post('/create.html', async(req, res) => {
   } else if(password != confirmPassword){
     res.send(`
     <script>
-      alert('Your password and confirm password do not');
+      alert('Your password and confirm password do not match');
       window.location.href = '/create.html'; </script>`);
   } else {
     await createUser(username,email,password,currentWeight,targetWeight,targetDate,goal);

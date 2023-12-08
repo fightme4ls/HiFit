@@ -1,4 +1,5 @@
 import mysql from 'mysql2';
+import bcrypt from 'bcrypt';
 
 const pool = mysql.createPool({
     host: '35.236.74.142',
@@ -60,11 +61,13 @@ export async function validateUser(email, password) {
     if(rows.length > 0) {
         const user = rows[0];
         const storedPassword = user.password; 
-        return (storedPassword == password);
+        const passwordMatch = await bcrypt.compare(password, storedPassword);
+        return passwordMatch;
     } else {
         return false;
     }
 }
+
  
 export async function getUserWeight(email){
     const [rows] = await pool.query("SELECT * FROM hifit.users WHERE email = ?", [email]);

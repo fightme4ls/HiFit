@@ -4,7 +4,7 @@ import { createUser, validateUser, getUserWeight, getTargetWeight, createRunning
   getUserID, createExerciseForm, getGoal, createWeightForm, getAllExerciseForms, getAllRunningForms} from './database.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-
+import bcrypt from 'bcrypt';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
@@ -13,6 +13,7 @@ let weightData = {};
 let exerciseForm = {};
 let runningForm = {};
 
+var saltRounds = 10;
 
 app.use(express.static(path.join(__dirname, 'public'), { 'extensions': ['html', 'js'] }));
 app.use(express.urlencoded({ extended: true }));
@@ -163,7 +164,6 @@ app.post('/create.html', async(req, res) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  const confirmPassword = req.body.password2;
   const currentWeight = parseFloat(req.body.currentWeight);
   const targetWeight = parseFloat(req.body.targetWeight);
   const targetDate = req.body.targetDate;
@@ -173,13 +173,9 @@ app.post('/create.html', async(req, res) => {
     <script>
       alert('You Did Not Input All Your Information, Try Again.');
       window.location.href = '/create.html'; </script>`);
-  } else if(password != confirmPassword){
-    res.send(`
-    <script>
-      alert('Your password and confirm password do not match');
-      window.location.href = '/create.html'; </script>`);
   } else {
-    await createUser(username,email,password,currentWeight,targetWeight,targetDate,goal);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    await createUser(username,email,hashedPassword,currentWeight,targetWeight,targetDate,goal);
     res.send(`
     <script>
       alert('Account Has Now Been Created, You may login!');
